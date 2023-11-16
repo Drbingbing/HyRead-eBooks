@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		446CCC532B064CA100903989 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 446CCC522B064CA100903989 /* AppDelegate.swift */; };
 		446CCC552B064CA100903989 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 446CCC542B064CA100903989 /* SceneDelegate.swift */; };
-		446CCC572B064CA100903989 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 446CCC562B064CA100903989 /* ViewController.swift */; };
 		446CCC5A2B064CA100903989 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 446CCC582B064CA100903989 /* Main.storyboard */; };
 		446CCC5C2B064CA100903989 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 446CCC5B2B064CA100903989 /* Assets.xcassets */; };
 		446CCC5F2B064CA100903989 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 446CCC5D2B064CA100903989 /* LaunchScreen.storyboard */; };
@@ -44,6 +43,13 @@
 		446CCCEE2B06551F00903989 /* HRApi.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 446CCCB22B064E0B00903989 /* HRApi.framework */; };
 		446CCCEF2B06551F00903989 /* HRApi.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 446CCCB22B064E0B00903989 /* HRApi.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		446CCCF42B06552E00903989 /* AppEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 446CCCF32B06552E00903989 /* AppEnvironment.swift */; };
+		446CCCF82B06565800903989 /* RootTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 446CCCF72B06565800903989 /* RootTabBarViewController.swift */; };
+		446CCCFB2B0656AB00903989 /* UIViewController+Preparation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 446CCCFA2B0656AB00903989 /* UIViewController+Preparation.swift */; };
+		446CCCFE2B06572D00903989 /* RootViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 446CCCFD2B06572D00903989 /* RootViewModel.swift */; };
+		446CCD002B0658E700903989 /* Optional+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 446CCCFF2B0658E700903989 /* Optional+Extension.swift */; };
+		446CCD022B0659EA00903989 /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 446CCD012B0659EA00903989 /* RxSwift */; };
+		446CCD042B065A0100903989 /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = 446CCD032B065A0100903989 /* RxCocoa */; };
+		446CCD062B065A0400903989 /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 446CCD052B065A0400903989 /* RxSwift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -142,7 +148,6 @@
 		446CCC4F2B064CA100903989 /* HyReadBooks.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HyReadBooks.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		446CCC522B064CA100903989 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		446CCC542B064CA100903989 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		446CCC562B064CA100903989 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		446CCC592B064CA100903989 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		446CCC5B2B064CA100903989 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		446CCC5E2B064CA100903989 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -172,6 +177,10 @@
 		446CCCEA2B0653B600903989 /* HRService+DecodeHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HRService+DecodeHelpers.swift"; sourceTree = "<group>"; };
 		446CCCEC2B0653FE00903989 /* Book.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Book.swift; sourceTree = "<group>"; };
 		446CCCF32B06552E00903989 /* AppEnvironment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppEnvironment.swift; sourceTree = "<group>"; };
+		446CCCF72B06565800903989 /* RootTabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootTabBarViewController.swift; sourceTree = "<group>"; };
+		446CCCFA2B0656AB00903989 /* UIViewController+Preparation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Preparation.swift"; sourceTree = "<group>"; };
+		446CCCFD2B06572D00903989 /* RootViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewModel.swift; sourceTree = "<group>"; };
+		446CCCFF2B0658E700903989 /* Optional+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Optional+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -181,6 +190,7 @@
 			files = (
 				446CCC872B064D6A00903989 /* Kingfisher in Frameworks */,
 				446CCC842B064D5A00903989 /* RxCocoa in Frameworks */,
+				446CCD022B0659EA00903989 /* RxSwift in Frameworks */,
 				446CCCA22B064DA500903989 /* HRLibrary.framework in Frameworks */,
 				446CCCC72B064E0B00903989 /* HRApi.framework in Frameworks */,
 			);
@@ -204,6 +214,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				446CCD062B065A0400903989 /* RxSwift in Frameworks */,
+				446CCD042B065A0100903989 /* RxCocoa in Frameworks */,
 				446CCCEE2B06551F00903989 /* HRApi.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -268,9 +280,9 @@
 		446CCC512B064CA100903989 /* HyReadBooks */ = {
 			isa = PBXGroup;
 			children = (
+				446CCCF52B06560A00903989 /* Features */,
 				446CCC522B064CA100903989 /* AppDelegate.swift */,
 				446CCC542B064CA100903989 /* SceneDelegate.swift */,
-				446CCC562B064CA100903989 /* ViewController.swift */,
 				446CCC582B064CA100903989 /* Main.storyboard */,
 				446CCC5B2B064CA100903989 /* Assets.xcassets */,
 				446CCC5D2B064CA100903989 /* LaunchScreen.storyboard */,
@@ -299,6 +311,8 @@
 		446CCC8E2B064DA500903989 /* HRLibrary */ = {
 			isa = PBXGroup;
 			children = (
+				446CCCFC2B0656F500903989 /* ViewModel */,
+				446CCCF92B06569700903989 /* DataSource */,
 				446CCCAB2B064DC200903989 /* Environment.swift */,
 				446CCCF32B06552E00903989 /* AppEnvironment.swift */,
 			);
@@ -363,6 +377,47 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		446CCCF52B06560A00903989 /* Features */ = {
+			isa = PBXGroup;
+			children = (
+				446CCD072B065A4400903989 /* MyBooks */,
+				446CCCF62B06564900903989 /* Root */,
+			);
+			path = Features;
+			sourceTree = "<group>";
+		};
+		446CCCF62B06564900903989 /* Root */ = {
+			isa = PBXGroup;
+			children = (
+				446CCCF72B06565800903989 /* RootTabBarViewController.swift */,
+			);
+			path = Root;
+			sourceTree = "<group>";
+		};
+		446CCCF92B06569700903989 /* DataSource */ = {
+			isa = PBXGroup;
+			children = (
+				446CCCFA2B0656AB00903989 /* UIViewController+Preparation.swift */,
+				446CCCFF2B0658E700903989 /* Optional+Extension.swift */,
+			);
+			path = DataSource;
+			sourceTree = "<group>";
+		};
+		446CCCFC2B0656F500903989 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				446CCCFD2B06572D00903989 /* RootViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		446CCD072B065A4400903989 /* MyBooks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = MyBooks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -402,6 +457,7 @@
 			packageProductDependencies = (
 				446CCC832B064D5A00903989 /* RxCocoa */,
 				446CCC862B064D6A00903989 /* Kingfisher */,
+				446CCD012B0659EA00903989 /* RxSwift */,
 			);
 			productName = HyReadBooks;
 			productReference = 446CCC4F2B064CA100903989 /* HyReadBooks.app */;
@@ -459,6 +515,10 @@
 				446CCCF12B06551F00903989 /* PBXTargetDependency */,
 			);
 			name = HRLibrary;
+			packageProductDependencies = (
+				446CCD032B065A0100903989 /* RxCocoa */,
+				446CCD052B065A0400903989 /* RxSwift */,
+			);
 			productName = HRLibrary;
 			productReference = 446CCC8D2B064DA500903989 /* HRLibrary.framework */;
 			productType = "com.apple.product-type.framework";
@@ -650,8 +710,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				446CCC572B064CA100903989 /* ViewController.swift in Sources */,
 				446CCC532B064CA100903989 /* AppDelegate.swift in Sources */,
+				446CCCF82B06565800903989 /* RootTabBarViewController.swift in Sources */,
 				446CCC552B064CA100903989 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -677,7 +737,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				446CCCFB2B0656AB00903989 /* UIViewController+Preparation.swift in Sources */,
 				446CCCAC2B064DC200903989 /* Environment.swift in Sources */,
+				446CCD002B0658E700903989 /* Optional+Extension.swift in Sources */,
+				446CCCFE2B06572D00903989 /* RootViewModel.swift in Sources */,
 				446CCCF42B06552E00903989 /* AppEnvironment.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1349,6 +1412,21 @@
 			productName = RxCocoa;
 		};
 		446CCCE62B06521F00903989 /* RxSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 446CCC822B064D5A00903989 /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxSwift;
+		};
+		446CCD012B0659EA00903989 /* RxSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 446CCC822B064D5A00903989 /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxSwift;
+		};
+		446CCD032B065A0100903989 /* RxCocoa */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 446CCC822B064D5A00903989 /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxCocoa;
+		};
+		446CCD052B065A0400903989 /* RxSwift */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 446CCC822B064D5A00903989 /* XCRemoteSwiftPackageReference "RxSwift" */;
 			productName = RxSwift;
