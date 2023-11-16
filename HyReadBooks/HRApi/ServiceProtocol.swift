@@ -6,11 +6,14 @@
 //
 
 import Foundation
+import RxCocoa
 
 public protocol ServiceProtocol {
     var serverConfig: ServerConfigProtocol { get }
     
     init(serverConfig: ServerConfigProtocol)
+    
+    func userList() -> Signal<Result<[Book], ErrorEnvelope>>
 }
 
 func ==(lhs: ServiceProtocol, rhs: ServiceProtocol) -> Bool {

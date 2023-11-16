@@ -7,7 +7,7 @@
 
 import Foundation
 
-public struct Book: Decodable {
+public struct Book: Decodable, Hashable {
     
     public var title: String
     public var uuid: Int

@@ -65,7 +65,7 @@ extension RootTabBarViewController {
     
     fileprivate static func viewController(from rootViewController: RootViewControllerData) -> UIViewController {
         switch rootViewController {
-        case .collections: UIViewController()
+        case .collections: MyBooksViewController()
         }
     }
 }

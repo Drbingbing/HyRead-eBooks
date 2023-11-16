@@ -28,7 +28,7 @@
 		446CCCC82B064E0B00903989 /* HRApi.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 446CCCB22B064E0B00903989 /* HRApi.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		446CCCD02B064E6900903989 /* ServerConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 446CCCCF2B064E6900903989 /* ServerConfig.swift */; };
 		446CCCD22B064F8200903989 /* ServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 446CCCD12B064F8200903989 /* ServiceProtocol.swift */; };
-		446CCCD52B064FBC00903989 /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 446CCCD42B064FBC00903989 /* Service.swift */; };
+		446CCCD52B064FBC00903989 /* HRService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 446CCCD42B064FBC00903989 /* HRService.swift */; };
 		446CCCD72B06502900903989 /* Route.swift in Sources */ = {isa = PBXBuildFile; fileRef = 446CCCD62B06502900903989 /* Route.swift */; };
 		446CCCD92B06504200903989 /* Method.swift in Sources */ = {isa = PBXBuildFile; fileRef = 446CCCD82B06504200903989 /* Method.swift */; };
 		446CCCDE2B06513800903989 /* NSURLSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 446CCCDB2B06513800903989 /* NSURLSession.swift */; };
@@ -50,6 +50,10 @@
 		446CCD022B0659EA00903989 /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 446CCD012B0659EA00903989 /* RxSwift */; };
 		446CCD042B065A0100903989 /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = 446CCD032B065A0100903989 /* RxCocoa */; };
 		446CCD062B065A0400903989 /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 446CCD052B065A0400903989 /* RxSwift */; };
+		446CCD092B065AF500903989 /* MyBooksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 446CCD082B065AF500903989 /* MyBooksViewController.swift */; };
+		446CCD0D2B06621E00903989 /* BookCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 446CCD0C2B06621E00903989 /* BookCell.swift */; };
+		446CCD0F2B0663AA00903989 /* BookCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 446CCD0E2B0663AA00903989 /* BookCellViewModel.swift */; };
+		446CCD122B06686700903989 /* MyBooksViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 446CCD112B06686700903989 /* MyBooksViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -166,7 +170,7 @@
 		446CCCC22B064E0B00903989 /* HRApiTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HRApiTests.swift; sourceTree = "<group>"; };
 		446CCCCF2B064E6900903989 /* ServerConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerConfig.swift; sourceTree = "<group>"; };
 		446CCCD12B064F8200903989 /* ServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceProtocol.swift; sourceTree = "<group>"; };
-		446CCCD42B064FBC00903989 /* Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
+		446CCCD42B064FBC00903989 /* HRService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HRService.swift; sourceTree = "<group>"; };
 		446CCCD62B06502900903989 /* Route.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Route.swift; sourceTree = "<group>"; };
 		446CCCD82B06504200903989 /* Method.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Method.swift; sourceTree = "<group>"; };
 		446CCCDB2B06513800903989 /* NSURLSession.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSURLSession.swift; sourceTree = "<group>"; };
@@ -181,6 +185,10 @@
 		446CCCFA2B0656AB00903989 /* UIViewController+Preparation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Preparation.swift"; sourceTree = "<group>"; };
 		446CCCFD2B06572D00903989 /* RootViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewModel.swift; sourceTree = "<group>"; };
 		446CCCFF2B0658E700903989 /* Optional+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Optional+Extension.swift"; sourceTree = "<group>"; };
+		446CCD082B065AF500903989 /* MyBooksViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyBooksViewController.swift; sourceTree = "<group>"; };
+		446CCD0C2B06621E00903989 /* BookCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookCell.swift; sourceTree = "<group>"; };
+		446CCD0E2B0663AA00903989 /* BookCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookCellViewModel.swift; sourceTree = "<group>"; };
+		446CCD112B06686700903989 /* MyBooksViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyBooksViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -333,7 +341,7 @@
 				446CCCDA2B06513800903989 /* extensions */,
 				446CCCD32B064FAB00903989 /* model */,
 				446CCCCF2B064E6900903989 /* ServerConfig.swift */,
-				446CCCD42B064FBC00903989 /* Service.swift */,
+				446CCCD42B064FBC00903989 /* HRService.swift */,
 				446CCCD12B064F8200903989 /* ServiceProtocol.swift */,
 				446CCCD62B06502900903989 /* Route.swift */,
 				446CCCD82B06504200903989 /* Method.swift */,
@@ -407,6 +415,8 @@
 			isa = PBXGroup;
 			children = (
 				446CCCFD2B06572D00903989 /* RootViewModel.swift */,
+				446CCD0E2B0663AA00903989 /* BookCellViewModel.swift */,
+				446CCD112B06686700903989 /* MyBooksViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -414,8 +424,26 @@
 		446CCD072B065A4400903989 /* MyBooks */ = {
 			isa = PBXGroup;
 			children = (
+				446CCD0B2B06621100903989 /* Cell */,
+				446CCD0A2B06620500903989 /* ViewControllers */,
 			);
 			path = MyBooks;
+			sourceTree = "<group>";
+		};
+		446CCD0A2B06620500903989 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				446CCD082B065AF500903989 /* MyBooksViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		446CCD0B2B06621100903989 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				446CCD0C2B06621E00903989 /* BookCell.swift */,
+			);
+			path = Cell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -711,8 +739,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				446CCC532B064CA100903989 /* AppDelegate.swift in Sources */,
+				446CCD092B065AF500903989 /* MyBooksViewController.swift in Sources */,
 				446CCCF82B06565800903989 /* RootTabBarViewController.swift in Sources */,
 				446CCC552B064CA100903989 /* SceneDelegate.swift in Sources */,
+				446CCD0D2B06621E00903989 /* BookCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -737,11 +767,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				446CCD122B06686700903989 /* MyBooksViewModel.swift in Sources */,
 				446CCCFB2B0656AB00903989 /* UIViewController+Preparation.swift in Sources */,
 				446CCCAC2B064DC200903989 /* Environment.swift in Sources */,
 				446CCD002B0658E700903989 /* Optional+Extension.swift in Sources */,
 				446CCCFE2B06572D00903989 /* RootViewModel.swift in Sources */,
 				446CCCF42B06552E00903989 /* AppEnvironment.swift in Sources */,
+				446CCD0F2B0663AA00903989 /* BookCellViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -766,7 +798,7 @@
 				446CCCD72B06502900903989 /* Route.swift in Sources */,
 				446CCCD22B064F8200903989 /* ServiceProtocol.swift in Sources */,
 				446CCCED2B0653FE00903989 /* Book.swift in Sources */,
-				446CCCD52B064FBC00903989 /* Service.swift in Sources */,
+				446CCCD52B064FBC00903989 /* HRService.swift in Sources */,
 				446CCCDF2B06513800903989 /* Encodable+Dictionary.swift in Sources */,
 				446CCCDE2B06513800903989 /* NSURLSession.swift in Sources */,
 			);
