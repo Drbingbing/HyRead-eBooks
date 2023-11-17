@@ -9,6 +9,7 @@ import Foundation
 import HRApi
 import RxCocoa
 import RxSwift
+import HRLocalStorage
 
 public protocol MyBooksViewModelInputs {
     
@@ -32,17 +33,30 @@ public protocol MyBooksViewModelProtocol {
 public final class MyBooksViewModel: MyBooksViewModelProtocol, MyBooksViewModelInputs, MyBooksViewModelOutputs {
     
     public init() {
-//        books = viewDidLoadSubject.flatMap { AppEnvironment.current.apiService.userList() }
-//            .map { try $0.get() }
-//            .asDriver(onErrorJustReturn: [])
-        books = Observable.just([Book(
-            uuid: 0,
-            title: "藍色時期. 7",
-            coverURL: "https://webcdn2.ebook.hyread.com.tw/bookcover/270374978957267916620215022111051.jpg",
-            publishDate: "",
-            publisher: "",
-            author: "")]
-        ).asDriver(onErrorJustReturn: [])
+        let store = AppEnvironment.current.localStorage.fetchMyBooks()
+            .asObservable()
+            .map { try $0.get() }
+            .map { $0.map(asBook) }
+            .catchAndReturn([])
+        let remote = AppEnvironment.current.apiService.userList()
+            .asObservable()
+            .map { try $0.get() }
+            .flatMap { books in
+                AppEnvironment.current.localStorage.saveMyBooks(books)
+                    .map { _ in books }
+            }
+            .catchAndReturn([])
+        books = Observable.zip(store, remote)
+            .map(merge)
+            .asDriver(onErrorJustReturn: [])
+//        books = Observable.just([Book(
+//            uuid: 0,
+//            title: "藍色時期. 7",
+//            coverURL: "https://webcdn2.ebook.hyread.com.tw/bookcover/270374978957267916620215022111051.jpg",
+//            publishDate: "",
+//            publisher: "",
+//            author: "")]
+//        ).asDriver(onErrorJustReturn: [])
     }
     
     public var inputs: MyBooksViewModelInputs { return self }
@@ -56,4 +70,23 @@ public final class MyBooksViewModel: MyBooksViewModelProtocol, MyBooksViewModelI
     public func viewDidLoad() {
         viewDidLoadSubject.onNext(())
     }
+}
+
+private func asBook(_ cdBook: CDMyBook) -> Book {
+    Book(
+        uuid: Int(cdBook.uuid),
+        title: cdBook.title ?? "",
+        coverURL: cdBook.coverURL ?? "",
+        publishDate: cdBook.publishDate ?? "",
+        publisher: cdBook.publisher ?? "",
+        author: cdBook.author ?? ""
+    )
+}
+
+private func merge(store: [Book], remote: [Book]) -> [Book] {
+    if !store.isEmpty {
+        return store
+    }
+    
+    return remote
 }

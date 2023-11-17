@@ -11,13 +11,28 @@ import HRApi
 
 extension CDMyBook {
     
-    static func insert(into context: NSManagedObjectContext, books: [Book]) {
-        
+    static func eraseAll(into context: NSManagedObjectContext) {
+        let objects = fetch(in: context)
+        for object in objects {
+            context.delete(object)
+        }
     }
     
-    static func insert(into context: NSManagedObjectContext, book: Book) -> CDMyBook {
+    @discardableResult
+    static func insert(into context: NSManagedObjectContext, books: [Book]) -> [CDMyBook] {
+        books.enumerated().map { insert(into: context, book: $0.element, id: $0.offset) }
+    }
+    
+    static func insert(into context: NSManagedObjectContext, book: Book, id: Int) -> CDMyBook {
         let object: CDMyBook = context.insertObject()
-        object.id = UUID().uuidString
-        object.
+        object.uuid = Int32(book.uuid)
+        object.setValue(id, forKey: "sortID")
+        object.setValue(book.title, forKey: "title")
+        object.setValue(book.coverURL, forKey: "coverURL")
+        object.setValue(book.publishDate, forKey: "publishDate")
+        object.setValue(book.publisher, forKey: "publisher")
+        object.setValue(book.author, forKey: "author")
+        
+        return object
     }
 }

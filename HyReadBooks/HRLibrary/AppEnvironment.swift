@@ -7,7 +7,9 @@
 
 import Foundation
 import HRApi
+import HRLocalStorage
 
+/// A global stack that captures the current state of global objects that the app wants access to.
 public struct AppEnvironment {
     
     fileprivate static var stack: [Environment] = [Environment()]
@@ -23,11 +25,13 @@ public struct AppEnvironment {
     }
     
     public static func replaceCurrentEnvironment(
-        apiService: ServiceProtocol = AppEnvironment.current.apiService
+        apiService: ServiceProtocol = AppEnvironment.current.apiService,
+        localStorage: LocalStorageProtocol = AppEnvironment.current.localStorage
     ) {
         replaceCurrentEnvironment(
             Environment(
-                apiService: apiService
+                apiService: apiService,
+                localStorage: localStorage
             )
         )
     }

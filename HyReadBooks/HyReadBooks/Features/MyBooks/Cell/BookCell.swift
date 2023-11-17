@@ -16,9 +16,12 @@ final class BookCell: UICollectionViewCell {
     
     static let reuseID = "BookCell"
     
-    private let imageView = UIImageView()
-    private let titleLabel = UILabel()
-    private let viewModel: BookCellViewModelProtocol = BookCellViewModel()
+    private lazy var saveButton = { UIButton(type: .custom) }()
+    private lazy var imageView = { UIImageView(frame: .zero) }()
+    private lazy var titleLabel = { UILabel(frame: .zero) }()
+    
+    private let viewModel: MyBookViewModelProtocol = MyBookViewModel()
+    private let watchBookViewModel: WatchBookViewModelProtocol = WatchBookViewModel()
     private let disposeBag = DisposeBag()
     
     override init(frame: CGRect) {
@@ -26,6 +29,7 @@ final class BookCell: UICollectionViewCell {
         
         contentView.addSubview(imageView)
         contentView.addSubview(titleLabel)
+        contentView.addSubview(saveButton)
         
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.topAnchor.constraint(equalTo: contentView.topAnchor).isActive = true
@@ -36,10 +40,18 @@ final class BookCell: UICollectionViewCell {
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
         titleLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor).isActive = true
         titleLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor).isActive = true
-        titleLabel.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: 4).isActive = true
-        titleLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor).isActive = true
+        titleLabel.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: 2).isActive = true
+        
+        saveButton.translatesAutoresizingMaskIntoConstraints = false
+        saveButton.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 8).isActive = true
+        saveButton.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -8).isActive = true
         
         titleLabel.font = .systemFont(ofSize: 14)
+        titleLabel.numberOfLines = 3
+        
+        saveButton.setImage(UIImage(named: "icon_saved"), for: .selected)
+        saveButton.setImage(UIImage(named: "icon_unsaved"), for: .normal)
+        saveButton.tintColor = .white
         
         viewModel.outputs.title
             .drive(titleLabel.rx.text)
@@ -49,6 +61,10 @@ final class BookCell: UICollectionViewCell {
             .drive { [weak self] url in
                 self?.imageView.kf.setImage(with: url)
             }
+            .disposed(by: disposeBag)
+        
+        watchBookViewModel.outputs.saveButtonSelected
+            .drive(saveButton.rx.isSelected)
             .disposed(by: disposeBag)
     }
     
@@ -60,19 +76,14 @@ final class BookCell: UICollectionViewCell {
     override func layoutSubviews() {
         super.layoutSubviews()
         
-        contentView.layer.borderColor = UIColor.separator.cgColor
-        contentView.layer.borderWidth = 1
-        contentView.layer.cornerRadius = 10
-        layer.shadowPath = UIBezierPath(roundedRect: contentView.bounds, cornerRadius: 10).cgPath
-        layer.shadowColor = UIColor.black.withAlphaComponent(0.1).cgColor
-        layer.shadowOffset = CGSize(width: 0, height: 2)
-        layer.shadowOpacity = 1
-        
-        imageView.layer.cornerRadius = 10
+        contentView.backgroundColor = .white
+        imageView.layer.masksToBounds = true
+        imageView.layer.cornerRadius = 6
     }
     
-    func populate(book: Book) {
-        viewModel.inputs.configure(book: book)
+    func populate(value: MyBookCellRowValue) {
+        watchBookViewModel.inputs.configure(saved: value.saved)
+        viewModel.inputs.configure(book: value.book)
     }
 }
 

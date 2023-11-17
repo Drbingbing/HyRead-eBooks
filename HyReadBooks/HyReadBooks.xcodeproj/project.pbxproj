@@ -7,6 +7,26 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		30C9D2D62B0737880097213C /* MyBookViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30C9D2D52B0737880097213C /* MyBookViewModel.swift */; };
+		30C9D2EB2B073ECE0097213C /* HRLocalStorage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 30C9D2E12B073ECE0097213C /* HRLocalStorage.framework */; };
+		30C9D2F22B073ECE0097213C /* HRLocalStorageTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30C9D2F12B073ECE0097213C /* HRLocalStorageTests.swift */; };
+		30C9D2F62B073ECE0097213C /* HRLocalStorage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 30C9D2E12B073ECE0097213C /* HRLocalStorage.framework */; };
+		30C9D2F72B073ECE0097213C /* HRLocalStorage.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 30C9D2E12B073ECE0097213C /* HRLocalStorage.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		30C9D3022B0741170097213C /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30C9D3012B0741170097213C /* CoreDataStack.swift */; };
+		30C9D3042B07444B0097213C /* LocalStorageProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30C9D3032B07444B0097213C /* LocalStorageProtocol.swift */; };
+		30C9D3062B0744A80097213C /* HRLocalStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30C9D3052B0744A80097213C /* HRLocalStorage.swift */; };
+		30C9D30B2B07466F0097213C /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = 30C9D30A2B07466F0097213C /* RxCocoa */; };
+		30C9D30D2B07466F0097213C /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 30C9D30C2B07466F0097213C /* RxSwift */; };
+		30C9D30F2B07471F0097213C /* HRLocalStorage+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30C9D30E2B07471F0097213C /* HRLocalStorage+Helpers.swift */; };
+		30C9D3132B07495A0097213C /* Managed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30C9D3122B07495A0097213C /* Managed.swift */; };
+		30ED089E2B07582B000B0645 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 30ED089C2B07582B000B0645 /* Model.xcdatamodeld */; };
+		30ED08A12B0759C9000B0645 /* MyBook.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30ED08A02B0759C9000B0645 /* MyBook.swift */; };
+		30ED08A42B075EA3000B0645 /* Extension+NSManagedObjectContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30ED08A32B075EA3000B0645 /* Extension+NSManagedObjectContext.swift */; };
+		30ED08A62B075F2F000B0645 /* Extension+CDMyBook.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30ED08A52B075F2F000B0645 /* Extension+CDMyBook.swift */; };
+		30ED08A72B075F65000B0645 /* HRApi.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 446CCCB22B064E0B00903989 /* HRApi.framework */; };
+		30ED08A82B075F65000B0645 /* HRApi.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 446CCCB22B064E0B00903989 /* HRApi.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		30ED08AC2B076239000B0645 /* HRLocalStorage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 30C9D2E12B073ECE0097213C /* HRLocalStorage.framework */; };
+		30ED08AD2B076239000B0645 /* HRLocalStorage.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 30C9D2E12B073ECE0097213C /* HRLocalStorage.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		446CCC532B064CA100903989 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 446CCC522B064CA100903989 /* AppDelegate.swift */; };
 		446CCC552B064CA100903989 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 446CCC542B064CA100903989 /* SceneDelegate.swift */; };
 		446CCC5A2B064CA100903989 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 446CCC582B064CA100903989 /* Main.storyboard */; };
@@ -52,11 +72,46 @@
 		446CCD062B065A0400903989 /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 446CCD052B065A0400903989 /* RxSwift */; };
 		446CCD092B065AF500903989 /* MyBooksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 446CCD082B065AF500903989 /* MyBooksViewController.swift */; };
 		446CCD0D2B06621E00903989 /* BookCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 446CCD0C2B06621E00903989 /* BookCell.swift */; };
-		446CCD0F2B0663AA00903989 /* BookCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 446CCD0E2B0663AA00903989 /* BookCellViewModel.swift */; };
+		446CCD0F2B0663AA00903989 /* WatchBookViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 446CCD0E2B0663AA00903989 /* WatchBookViewModel.swift */; };
 		446CCD122B06686700903989 /* MyBooksViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 446CCD112B06686700903989 /* MyBooksViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		30C9D2EC2B073ECE0097213C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 446CCC472B064CA100903989 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 30C9D2E02B073ECE0097213C;
+			remoteInfo = HRLocalStorage;
+		};
+		30C9D2EE2B073ECE0097213C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 446CCC472B064CA100903989 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 446CCC4E2B064CA100903989;
+			remoteInfo = HyReadBooks;
+		};
+		30C9D2F42B073ECE0097213C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 446CCC472B064CA100903989 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 30C9D2E02B073ECE0097213C;
+			remoteInfo = HRLocalStorage;
+		};
+		30ED08A92B075F65000B0645 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 446CCC472B064CA100903989 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 446CCCB12B064E0B00903989;
+			remoteInfo = HRApi;
+		};
+		30ED08AE2B076239000B0645 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 446CCC472B064CA100903989 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 30C9D2E02B073ECE0097213C;
+			remoteInfo = HRLocalStorage;
+		};
 		446CCC662B064CA200903989 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 446CCC472B064CA100903989 /* Project object */;
@@ -123,6 +178,17 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
+		30ED08AB2B075F65000B0645 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				30ED08A82B075F65000B0645 /* HRApi.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		446CCCA72B064DA500903989 /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -131,6 +197,7 @@
 			files = (
 				446CCCA32B064DA500903989 /* HRLibrary.framework in Embed Frameworks */,
 				446CCCC82B064E0B00903989 /* HRApi.framework in Embed Frameworks */,
+				30C9D2F72B073ECE0097213C /* HRLocalStorage.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -141,6 +208,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				30ED08AD2B076239000B0645 /* HRLocalStorage.framework in Embed Frameworks */,
 				446CCCEF2B06551F00903989 /* HRApi.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
@@ -149,6 +217,19 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		30C9D2D52B0737880097213C /* MyBookViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyBookViewModel.swift; sourceTree = "<group>"; };
+		30C9D2E12B073ECE0097213C /* HRLocalStorage.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = HRLocalStorage.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		30C9D2EA2B073ECE0097213C /* HRLocalStorageTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HRLocalStorageTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		30C9D2F12B073ECE0097213C /* HRLocalStorageTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HRLocalStorageTests.swift; sourceTree = "<group>"; };
+		30C9D3012B0741170097213C /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
+		30C9D3032B07444B0097213C /* LocalStorageProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalStorageProtocol.swift; sourceTree = "<group>"; };
+		30C9D3052B0744A80097213C /* HRLocalStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HRLocalStorage.swift; sourceTree = "<group>"; };
+		30C9D30E2B07471F0097213C /* HRLocalStorage+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HRLocalStorage+Helpers.swift"; sourceTree = "<group>"; };
+		30C9D3122B07495A0097213C /* Managed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Managed.swift; sourceTree = "<group>"; };
+		30ED089D2B07582B000B0645 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
+		30ED08A02B0759C9000B0645 /* MyBook.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyBook.swift; sourceTree = "<group>"; };
+		30ED08A32B075EA3000B0645 /* Extension+NSManagedObjectContext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+NSManagedObjectContext.swift"; sourceTree = "<group>"; };
+		30ED08A52B075F2F000B0645 /* Extension+CDMyBook.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+CDMyBook.swift"; sourceTree = "<group>"; };
 		446CCC4F2B064CA100903989 /* HyReadBooks.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HyReadBooks.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		446CCC522B064CA100903989 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		446CCC542B064CA100903989 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -187,17 +268,36 @@
 		446CCCFF2B0658E700903989 /* Optional+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Optional+Extension.swift"; sourceTree = "<group>"; };
 		446CCD082B065AF500903989 /* MyBooksViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyBooksViewController.swift; sourceTree = "<group>"; };
 		446CCD0C2B06621E00903989 /* BookCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookCell.swift; sourceTree = "<group>"; };
-		446CCD0E2B0663AA00903989 /* BookCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookCellViewModel.swift; sourceTree = "<group>"; };
+		446CCD0E2B0663AA00903989 /* WatchBookViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchBookViewModel.swift; sourceTree = "<group>"; };
 		446CCD112B06686700903989 /* MyBooksViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyBooksViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		30C9D2DE2B073ECE0097213C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				30C9D30D2B07466F0097213C /* RxSwift in Frameworks */,
+				30ED08A72B075F65000B0645 /* HRApi.framework in Frameworks */,
+				30C9D30B2B07466F0097213C /* RxCocoa in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		30C9D2E72B073ECE0097213C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				30C9D2EB2B073ECE0097213C /* HRLocalStorage.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		446CCC4C2B064CA100903989 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				446CCC872B064D6A00903989 /* Kingfisher in Frameworks */,
 				446CCC842B064D5A00903989 /* RxCocoa in Frameworks */,
+				30C9D2F62B073ECE0097213C /* HRLocalStorage.framework in Frameworks */,
 				446CCD022B0659EA00903989 /* RxSwift in Frameworks */,
 				446CCCA22B064DA500903989 /* HRLibrary.framework in Frameworks */,
 				446CCCC72B064E0B00903989 /* HRApi.framework in Frameworks */,
@@ -224,6 +324,7 @@
 			files = (
 				446CCD062B065A0400903989 /* RxSwift in Frameworks */,
 				446CCD042B065A0100903989 /* RxCocoa in Frameworks */,
+				30ED08AC2B076239000B0645 /* HRLocalStorage.framework in Frameworks */,
 				446CCCEE2B06551F00903989 /* HRApi.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -256,6 +357,45 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		30C9D2E22B073ECE0097213C /* HRLocalStorage */ = {
+			isa = PBXGroup;
+			children = (
+				30ED08A22B075E8B000B0645 /* extensions */,
+				30C9D3012B0741170097213C /* CoreDataStack.swift */,
+				30C9D3032B07444B0097213C /* LocalStorageProtocol.swift */,
+				30C9D3052B0744A80097213C /* HRLocalStorage.swift */,
+				30C9D30E2B07471F0097213C /* HRLocalStorage+Helpers.swift */,
+				30C9D3122B07495A0097213C /* Managed.swift */,
+				30ED089C2B07582B000B0645 /* Model.xcdatamodeld */,
+			);
+			path = HRLocalStorage;
+			sourceTree = "<group>";
+		};
+		30C9D2F02B073ECE0097213C /* HRLocalStorageTests */ = {
+			isa = PBXGroup;
+			children = (
+				30C9D2F12B073ECE0097213C /* HRLocalStorageTests.swift */,
+			);
+			path = HRLocalStorageTests;
+			sourceTree = "<group>";
+		};
+		30ED089F2B0759BF000B0645 /* models */ = {
+			isa = PBXGroup;
+			children = (
+				30ED08A02B0759C9000B0645 /* MyBook.swift */,
+			);
+			path = models;
+			sourceTree = "<group>";
+		};
+		30ED08A22B075E8B000B0645 /* extensions */ = {
+			isa = PBXGroup;
+			children = (
+				30ED08A32B075EA3000B0645 /* Extension+NSManagedObjectContext.swift */,
+				30ED08A52B075F2F000B0645 /* Extension+CDMyBook.swift */,
+			);
+			path = extensions;
+			sourceTree = "<group>";
+		};
 		446CCC462B064CA100903989 = {
 			isa = PBXGroup;
 			children = (
@@ -266,6 +406,8 @@
 				446CCC9C2B064DA500903989 /* HRLibraryTests */,
 				446CCCB32B064E0B00903989 /* HRApi */,
 				446CCCC12B064E0B00903989 /* HRApiTests */,
+				30C9D2E22B073ECE0097213C /* HRLocalStorage */,
+				30C9D2F02B073ECE0097213C /* HRLocalStorageTests */,
 				446CCC502B064CA100903989 /* Products */,
 				446CCCE32B06521F00903989 /* Frameworks */,
 			);
@@ -281,6 +423,8 @@
 				446CCC962B064DA500903989 /* HRLibraryTests.xctest */,
 				446CCCB22B064E0B00903989 /* HRApi.framework */,
 				446CCCBB2B064E0B00903989 /* HRApiTests.xctest */,
+				30C9D2E12B073ECE0097213C /* HRLocalStorage.framework */,
+				30C9D2EA2B073ECE0097213C /* HRLocalStorageTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -288,6 +432,7 @@
 		446CCC512B064CA100903989 /* HyReadBooks */ = {
 			isa = PBXGroup;
 			children = (
+				30ED089F2B0759BF000B0645 /* models */,
 				446CCCF52B06560A00903989 /* Features */,
 				446CCC522B064CA100903989 /* AppDelegate.swift */,
 				446CCC542B064CA100903989 /* SceneDelegate.swift */,
@@ -415,8 +560,9 @@
 			isa = PBXGroup;
 			children = (
 				446CCCFD2B06572D00903989 /* RootViewModel.swift */,
-				446CCD0E2B0663AA00903989 /* BookCellViewModel.swift */,
+				446CCD0E2B0663AA00903989 /* WatchBookViewModel.swift */,
 				446CCD112B06686700903989 /* MyBooksViewModel.swift */,
+				30C9D2D52B0737880097213C /* MyBookViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -449,6 +595,13 @@
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
+		30C9D2DC2B073ECE0097213C /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		446CCC882B064DA500903989 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
@@ -466,6 +619,49 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
+		30C9D2E02B073ECE0097213C /* HRLocalStorage */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 30C9D2F82B073ECF0097213C /* Build configuration list for PBXNativeTarget "HRLocalStorage" */;
+			buildPhases = (
+				30C9D2DC2B073ECE0097213C /* Headers */,
+				30C9D2DD2B073ECE0097213C /* Sources */,
+				30C9D2DE2B073ECE0097213C /* Frameworks */,
+				30C9D2DF2B073ECE0097213C /* Resources */,
+				30ED08AB2B075F65000B0645 /* Embed Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				30ED08AA2B075F65000B0645 /* PBXTargetDependency */,
+			);
+			name = HRLocalStorage;
+			packageProductDependencies = (
+				30C9D30A2B07466F0097213C /* RxCocoa */,
+				30C9D30C2B07466F0097213C /* RxSwift */,
+			);
+			productName = HRLocalStorage;
+			productReference = 30C9D2E12B073ECE0097213C /* HRLocalStorage.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		30C9D2E92B073ECE0097213C /* HRLocalStorageTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 30C9D2FB2B073ECF0097213C /* Build configuration list for PBXNativeTarget "HRLocalStorageTests" */;
+			buildPhases = (
+				30C9D2E62B073ECE0097213C /* Sources */,
+				30C9D2E72B073ECE0097213C /* Frameworks */,
+				30C9D2E82B073ECE0097213C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				30C9D2ED2B073ECE0097213C /* PBXTargetDependency */,
+				30C9D2EF2B073ECE0097213C /* PBXTargetDependency */,
+			);
+			name = HRLocalStorageTests;
+			productName = HRLocalStorageTests;
+			productReference = 30C9D2EA2B073ECE0097213C /* HRLocalStorageTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		446CCC4E2B064CA100903989 /* HyReadBooks */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 446CCC792B064CA200903989 /* Build configuration list for PBXNativeTarget "HyReadBooks" */;
@@ -480,6 +676,7 @@
 			dependencies = (
 				446CCCA12B064DA500903989 /* PBXTargetDependency */,
 				446CCCC62B064E0B00903989 /* PBXTargetDependency */,
+				30C9D2F52B073ECE0097213C /* PBXTargetDependency */,
 			);
 			name = HyReadBooks;
 			packageProductDependencies = (
@@ -541,6 +738,7 @@
 			);
 			dependencies = (
 				446CCCF12B06551F00903989 /* PBXTargetDependency */,
+				30ED08AF2B076239000B0645 /* PBXTargetDependency */,
 			);
 			name = HRLibrary;
 			packageProductDependencies = (
@@ -621,6 +819,14 @@
 				LastSwiftUpdateCheck = 1500;
 				LastUpgradeCheck = 1500;
 				TargetAttributes = {
+					30C9D2E02B073ECE0097213C = {
+						CreatedOnToolsVersion = 15.0;
+						LastSwiftMigration = 1500;
+					};
+					30C9D2E92B073ECE0097213C = {
+						CreatedOnToolsVersion = 15.0;
+						TestTargetID = 446CCC4E2B064CA100903989;
+					};
 					446CCC4E2B064CA100903989 = {
 						CreatedOnToolsVersion = 15.0;
 					};
@@ -674,11 +880,27 @@
 				446CCC952B064DA500903989 /* HRLibraryTests */,
 				446CCCB12B064E0B00903989 /* HRApi */,
 				446CCCBA2B064E0B00903989 /* HRApiTests */,
+				30C9D2E02B073ECE0097213C /* HRLocalStorage */,
+				30C9D2E92B073ECE0097213C /* HRLocalStorageTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		30C9D2DF2B073ECE0097213C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		30C9D2E82B073ECE0097213C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		446CCC4D2B064CA100903989 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -734,10 +956,34 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		30C9D2DD2B073ECE0097213C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				30C9D30F2B07471F0097213C /* HRLocalStorage+Helpers.swift in Sources */,
+				30ED08A62B075F2F000B0645 /* Extension+CDMyBook.swift in Sources */,
+				30ED08A42B075EA3000B0645 /* Extension+NSManagedObjectContext.swift in Sources */,
+				30C9D3042B07444B0097213C /* LocalStorageProtocol.swift in Sources */,
+				30C9D3062B0744A80097213C /* HRLocalStorage.swift in Sources */,
+				30C9D3132B07495A0097213C /* Managed.swift in Sources */,
+				30C9D3022B0741170097213C /* CoreDataStack.swift in Sources */,
+				30ED089E2B07582B000B0645 /* Model.xcdatamodeld in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		30C9D2E62B073ECE0097213C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				30C9D2F22B073ECE0097213C /* HRLocalStorageTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		446CCC4B2B064CA100903989 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				30ED08A12B0759C9000B0645 /* MyBook.swift in Sources */,
 				446CCC532B064CA100903989 /* AppDelegate.swift in Sources */,
 				446CCD092B065AF500903989 /* MyBooksViewController.swift in Sources */,
 				446CCCF82B06565800903989 /* RootTabBarViewController.swift in Sources */,
@@ -772,8 +1018,9 @@
 				446CCCAC2B064DC200903989 /* Environment.swift in Sources */,
 				446CCD002B0658E700903989 /* Optional+Extension.swift in Sources */,
 				446CCCFE2B06572D00903989 /* RootViewModel.swift in Sources */,
+				30C9D2D62B0737880097213C /* MyBookViewModel.swift in Sources */,
 				446CCCF42B06552E00903989 /* AppEnvironment.swift in Sources */,
-				446CCD0F2B0663AA00903989 /* BookCellViewModel.swift in Sources */,
+				446CCD0F2B0663AA00903989 /* WatchBookViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -815,6 +1062,31 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		30C9D2ED2B073ECE0097213C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 30C9D2E02B073ECE0097213C /* HRLocalStorage */;
+			targetProxy = 30C9D2EC2B073ECE0097213C /* PBXContainerItemProxy */;
+		};
+		30C9D2EF2B073ECE0097213C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 446CCC4E2B064CA100903989 /* HyReadBooks */;
+			targetProxy = 30C9D2EE2B073ECE0097213C /* PBXContainerItemProxy */;
+		};
+		30C9D2F52B073ECE0097213C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 30C9D2E02B073ECE0097213C /* HRLocalStorage */;
+			targetProxy = 30C9D2F42B073ECE0097213C /* PBXContainerItemProxy */;
+		};
+		30ED08AA2B075F65000B0645 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 446CCCB12B064E0B00903989 /* HRApi */;
+			targetProxy = 30ED08A92B075F65000B0645 /* PBXContainerItemProxy */;
+		};
+		30ED08AF2B076239000B0645 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 30C9D2E02B073ECE0097213C /* HRLocalStorage */;
+			targetProxy = 30ED08AE2B076239000B0645 /* PBXContainerItemProxy */;
+		};
 		446CCC672B064CA200903989 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 446CCC4E2B064CA100903989 /* HyReadBooks */;
@@ -882,6 +1154,107 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		30C9D2F92B073ECF0097213C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_MODULE_VERIFIER = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				MODULE_VERIFIER_SUPPORTED_LANGUAGES = "objective-c objective-c++";
+				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu17 gnu++20";
+				PRODUCT_BUNDLE_IDENTIFIER = bingbing.HRLocalStorage;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		30C9D2FA2B073ECF0097213C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_MODULE_VERIFIER = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				MODULE_VERIFIER_SUPPORTED_LANGUAGES = "objective-c objective-c++";
+				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu17 gnu++20";
+				PRODUCT_BUNDLE_IDENTIFIER = bingbing.HRLocalStorage;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		30C9D2FC2B073ECF0097213C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = bingbing.HRLocalStorageTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/HyReadBooks.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/HyReadBooks";
+			};
+			name = Debug;
+		};
+		30C9D2FD2B073ECF0097213C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = bingbing.HRLocalStorageTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/HyReadBooks.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/HyReadBooks";
+			};
+			name = Release;
+		};
 		446CCC772B064CA200903989 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -1334,6 +1707,24 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		30C9D2F82B073ECF0097213C /* Build configuration list for PBXNativeTarget "HRLocalStorage" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				30C9D2F92B073ECF0097213C /* Debug */,
+				30C9D2FA2B073ECF0097213C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		30C9D2FB2B073ECF0097213C /* Build configuration list for PBXNativeTarget "HRLocalStorageTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				30C9D2FC2B073ECF0097213C /* Debug */,
+				30C9D2FD2B073ECF0097213C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		446CCC4A2B064CA100903989 /* Build configuration list for PBXProject "HyReadBooks" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -1428,6 +1819,16 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		30C9D30A2B07466F0097213C /* RxCocoa */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 446CCC822B064D5A00903989 /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxCocoa;
+		};
+		30C9D30C2B07466F0097213C /* RxSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 446CCC822B064D5A00903989 /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxSwift;
+		};
 		446CCC832B064D5A00903989 /* RxCocoa */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 446CCC822B064D5A00903989 /* XCRemoteSwiftPackageReference "RxSwift" */;
@@ -1464,6 +1865,19 @@
 			productName = RxSwift;
 		};
 /* End XCSwiftPackageProductDependency section */
+
+/* Begin XCVersionGroup section */
+		30ED089C2B07582B000B0645 /* Model.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				30ED089D2B07582B000B0645 /* Model.xcdatamodel */,
+			);
+			currentVersion = 30ED089D2B07582B000B0645 /* Model.xcdatamodel */;
+			path = Model.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 446CCC472B064CA100903989 /* Project object */;
 }

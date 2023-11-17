@@ -1,5 +1,5 @@
 //
-//  BookCellViewModel.swift
+//  WatchBookViewModel.swift
 //  HRLibrary
 //
 //  Created by Bing Bing on 2023/11/16.
@@ -10,53 +10,39 @@ import HRApi
 import RxCocoa
 import RxSwift
 
-public protocol BookCellViewModelInputs {
+public protocol WatchBookViewModelInputs {
     
-    /// Call to configure with a Book
-    func configure(book: Book)
+    /// Call to configure with saved property.
+    func configure(saved: Bool)
 }
 
-public protocol BookCellViewModelOutputs {
+public protocol WatchBookViewModelOutputs {
     
-    /// Emits cover url that should be download image session.
-    var coverURL: Driver<URL?> { get }
-    
-    /// Emits data for setting book title.
-    var title: Driver<String> { get }
-    
+    /// Emits when the project has been successfully saved and a prompt should be shown to the user.
     var saveButtonSelected: Driver<Bool> { get }
 }
 
-public protocol BookCellViewModelProtocol {
+public protocol WatchBookViewModelProtocol {
     
-    var inputs: BookCellViewModelInputs { get }
-    var outputs: BookCellViewModelOutputs { get }
+    var inputs: WatchBookViewModelInputs { get }
+    var outputs: WatchBookViewModelOutputs { get }
 }
 
-public final class BookCellViewModel: BookCellViewModelProtocol, BookCellViewModelInputs, BookCellViewModelOutputs {
+public final class WatchBookViewModel: WatchBookViewModelProtocol, WatchBookViewModelInputs, WatchBookViewModelOutputs {
     
-    public var outputs: BookCellViewModelOutputs { return self }
-    public var inputs: BookCellViewModelInputs { return self }
+    public var outputs: WatchBookViewModelOutputs { return self }
+    public var inputs: WatchBookViewModelInputs { return self }
     
     public init() {
-        coverURL = bookSubject.map(\.coverURL)
-            .compactMap { URL(string: $0) }
-            .asDriver(onErrorJustReturn: nil)
-        
-        title = bookSubject.map(\.title)
-            .asDriver(onErrorJustReturn: "")
-        
-        saveButtonSelected = Observable.just(false).asDriver(onErrorJustReturn: false)
+        saveButtonSelected = savedSubject.asDriver(onErrorJustReturn: false)
     }
     
     // MARK: - Outpus
-    public let coverURL: Driver<URL?>
-    public let title: Driver<String>
     public let saveButtonSelected: Driver<Bool>
     
     // MARK: - Inputs
-    private let bookSubject = PublishSubject<Book>()
-    public func configure(book: Book) {
-        bookSubject.onNext(book)
+    private let savedSubject = PublishSubject<Bool>()
+    public func configure(saved: Bool) {
+        savedSubject.onNext(saved)
     }
 }

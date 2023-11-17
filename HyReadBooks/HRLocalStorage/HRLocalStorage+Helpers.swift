@@ -10,12 +10,12 @@ import CoreData
 import RxSwift
 import RxCocoa
 
-extension LocalStorage {
+extension HRLocalStorage {
     
     func request<Object: NSManagedObject & Managed>(_ object: Object.Type) -> Signal<Result<[Object], Error>> {
         Observable.create { observer in
             
-            let context = coreStack.persistentContainer.newBackgroundContext()
+            let context = coreStack.persistentContainer.viewContext
             context.perform {
                 let result = object.fetch(in: context)
                 observer.onNext(.success(result))

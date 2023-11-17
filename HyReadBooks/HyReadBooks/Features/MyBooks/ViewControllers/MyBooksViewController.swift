@@ -28,6 +28,7 @@ final class MyBooksViewController: UIViewController {
         view.addSubview(collectionView)
         
         collectionView.register(BookCell.self, forCellWithReuseIdentifier: BookCell.reuseID)
+        collectionView.setCollectionViewLayout(createLayout(), animated: false)
         collectionView.dataSource = dataSource
         collectionView.delegate = self
         collectionView.delaysContentTouches = false
@@ -38,9 +39,10 @@ final class MyBooksViewController: UIViewController {
     override func bindingViewModel() {
         viewModel.outputs.books
             .drive { [weak self] books in
-                var snapshot = NSDiffableDataSourceSnapshot<Section, Book>()
+                var snapshot = NSDiffableDataSourceSnapshot<Section, MyBookCellRowValue>()
                 snapshot.appendSections([.main])
-                snapshot.appendItems(books)
+                let values = books.map { MyBookCellRowValue(book: $0, saved: false) }
+                snapshot.appendItems(values)
                 self?.dataSource.apply(snapshot)
             }
             .disposed(by: disposeBag)
@@ -53,23 +55,23 @@ final class MyBooksViewController: UIViewController {
     
     private func createLayout() -> UICollectionViewLayout {
         let itemSize = NSCollectionLayoutSize(
-            widthDimension: .fractionalWidth(0.5),
+            widthDimension: .fractionalWidth(1/3),
             heightDimension: .fractionalHeight(1.0)
         )
         let item = NSCollectionLayoutItem(layoutSize: itemSize)
-        item.contentInsets = .init(top: 0, leading: 0, bottom: 8, trailing: 0)
+        
         let groupSize = NSCollectionLayoutSize(
             widthDimension: .fractionalWidth(1.0),
-            heightDimension: .estimated(300)
+            heightDimension: .estimated(200)
         )
         let group = NSCollectionLayoutGroup.horizontal(
-            layoutSize: groupSize,
-            subitems: [item]
+            layoutSize: groupSize, repeatingSubitem: item, count: 3
         )
         
-        group.interItemSpacing = .flexible(8)
+        group.interItemSpacing = .flexible(10)
 
         let section = NSCollectionLayoutSection(group: group)
+        section.interGroupSpacing = 20
         section.contentInsets = .init(top: 20, leading: 20, bottom: 20, trailing: 20)
         
         return UICollectionViewCompositionalLayout(section: section)
@@ -78,9 +80,9 @@ final class MyBooksViewController: UIViewController {
     // MARK: - Private properties
     private let disposeBag = DisposeBag()
     private let collectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
-    private lazy var dataSource = UICollectionViewDiffableDataSource<Section, Book>(collectionView: collectionView) { collectionView, indexPath, book in
+    private lazy var dataSource = UICollectionViewDiffableDataSource<Section, MyBookCellRowValue>(collectionView: collectionView) { collectionView, indexPath, value in
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: BookCell.reuseID, for: indexPath) as! BookCell
-        cell.populate(book: book)
+        cell.populate(value: value)
         return cell
     }
 }
