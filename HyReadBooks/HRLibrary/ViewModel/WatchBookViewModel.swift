@@ -23,6 +23,8 @@ public protocol BookCellViewModelOutputs {
     
     /// Emits data for setting book title.
     var title: Driver<String> { get }
+    
+    var saveButtonSelected: Driver<Bool> { get }
 }
 
 public protocol BookCellViewModelProtocol {
@@ -43,11 +45,14 @@ public final class BookCellViewModel: BookCellViewModelProtocol, BookCellViewMod
         
         title = bookSubject.map(\.title)
             .asDriver(onErrorJustReturn: "")
+        
+        saveButtonSelected = Observable.just(false).asDriver(onErrorJustReturn: false)
     }
     
     // MARK: - Outpus
     public let coverURL: Driver<URL?>
     public let title: Driver<String>
+    public let saveButtonSelected: Driver<Bool>
     
     // MARK: - Inputs
     private let bookSubject = PublishSubject<Book>()
