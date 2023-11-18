@@ -26,12 +26,14 @@ public struct AppEnvironment {
     
     public static func replaceCurrentEnvironment(
         apiService: ServiceProtocol = AppEnvironment.current.apiService,
-        localStorage: LocalStorageProtocol = AppEnvironment.current.localStorage
+        localStorage: LocalStorageProtocol = AppEnvironment.current.localStorage,
+        cache: HRCache = AppEnvironment.current.cache
     ) {
         replaceCurrentEnvironment(
             Environment(
                 apiService: apiService,
-                localStorage: localStorage
+                localStorage: localStorage,
+                cache: cache
             )
         )
     }

@@ -17,20 +17,78 @@ public struct HRLocalStorage: LocalStorageProtocol {
     
     public init() {}
     
-    public func fetchMyBooks() -> Signal<Result<[CDMyBook], Error>> {
-        return request(CDMyBook.self)
+    public func fetchMyBooks() -> Signal<[CDBook]> {
+        Observable.create { observer in
+            
+            let context = coreStack.persistentContainer.viewContext
+            context.perform {
+                let result = CDBook.fetch(in: context) {
+                    $0.sortDescriptors = [NSSortDescriptor(key: "sortID", ascending: true)]
+                }
+                observer.onNext(result)
+            }
+            
+            return Disposables.create()
+        }
+        .asSignal(onErrorJustReturn: [])
     }
     
     public func saveMyBooks(_ books: [Book]) -> Signal<Bool> {
         Observable.create { observer in
             let context = coreStack.persistentContainer.viewContext
             context.performChanges {
-                CDMyBook.eraseAll(into: context)
-                CDMyBook.insert(into: context, books: books)
+                CDBook.eraseAll(into: context)
+                CDBook.insert(into: context, books: books)
                 observer.onNext(true)
             }
             
             return Disposables.create {}
-        }.asSignal(onErrorJustReturn: false)
+        }
+        .asSignal(onErrorJustReturn: false)
+    }
+    
+    public func addToCollections(_ book: Book) -> Signal<Bool> {
+        Observable.create { observer in
+            
+            let context = coreStack.persistentContainer.viewContext
+            context.performChanges {
+                CDSavedBook.insert(into: context, book: book)
+                observer.onNext(true)
+            }
+            
+            return Disposables.create {}
+        }
+        .asSignal(onErrorJustReturn: false)
+    }
+    
+    public func removeFromCollections(_ book: Book) -> Signal<Bool> {
+        Observable.create { observer in
+            
+            let context = coreStack.persistentContainer.viewContext
+            context.performChanges {
+                let saved = CDSavedBook.fetch(in: context)
+                if let object = saved.first(where: { $0.uuid == Int32(book.uuid) }) {
+                    context.delete(object)
+                }
+                observer.onNext(true)
+            }
+            
+            return Disposables.create {}
+        }
+        .asSignal(onErrorJustReturn: false)
+    }
+    
+    public func fetchCollections() -> Signal<[CDSavedBook]> {
+        Observable.create { observer in
+            
+            let context = coreStack.persistentContainer.viewContext
+            context.performChanges {
+                let saved = CDSavedBook.fetch(in: context)
+                observer.onNext(saved)
+            }
+            
+            return Disposables.create {}
+        }
+        .asSignal(onErrorJustReturn: [])
     }
 }

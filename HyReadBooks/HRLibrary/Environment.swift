@@ -18,11 +18,16 @@ public struct Environment {
     /// A type that save data on local platform
     public let localStorage: LocalStorageProtocol
     
+    /// A type that stores a cached dictionary.
+    public let cache: HRCache
+    
     public init(
         apiService: ServiceProtocol = HRService(),
-        localStorage: LocalStorageProtocol = HRLocalStorage()
+        localStorage: LocalStorageProtocol = HRLocalStorage(),
+        cache: HRCache = HRCache()
     ) {
         self.apiService = apiService
         self.localStorage = localStorage
+        self.cache = cache
     }
 }

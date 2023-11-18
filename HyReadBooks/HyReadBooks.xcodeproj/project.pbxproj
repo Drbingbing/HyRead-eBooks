@@ -22,7 +22,7 @@
 		30ED089E2B07582B000B0645 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 30ED089C2B07582B000B0645 /* Model.xcdatamodeld */; };
 		30ED08A12B0759C9000B0645 /* MyBook.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30ED08A02B0759C9000B0645 /* MyBook.swift */; };
 		30ED08A42B075EA3000B0645 /* Extension+NSManagedObjectContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30ED08A32B075EA3000B0645 /* Extension+NSManagedObjectContext.swift */; };
-		30ED08A62B075F2F000B0645 /* Extension+CDMyBook.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30ED08A52B075F2F000B0645 /* Extension+CDMyBook.swift */; };
+		30ED08A62B075F2F000B0645 /* Extension+CDBook.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30ED08A52B075F2F000B0645 /* Extension+CDBook.swift */; };
 		30ED08A72B075F65000B0645 /* HRApi.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 446CCCB22B064E0B00903989 /* HRApi.framework */; };
 		30ED08A82B075F65000B0645 /* HRApi.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 446CCCB22B064E0B00903989 /* HRApi.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		30ED08AC2B076239000B0645 /* HRLocalStorage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 30C9D2E12B073ECE0097213C /* HRLocalStorage.framework */; };
@@ -74,6 +74,8 @@
 		446CCD0D2B06621E00903989 /* BookCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 446CCD0C2B06621E00903989 /* BookCell.swift */; };
 		446CCD0F2B0663AA00903989 /* WatchBookViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 446CCD0E2B0663AA00903989 /* WatchBookViewModel.swift */; };
 		446CCD122B06686700903989 /* MyBooksViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 446CCD112B06686700903989 /* MyBooksViewModel.swift */; };
+		446CCD142B07A01300903989 /* Extension+CDSavedBook.swift in Sources */ = {isa = PBXBuildFile; fileRef = 446CCD132B07A01300903989 /* Extension+CDSavedBook.swift */; };
+		446CCD162B0852AD00903989 /* HRCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 446CCD152B0852AD00903989 /* HRCache.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -229,7 +231,7 @@
 		30ED089D2B07582B000B0645 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		30ED08A02B0759C9000B0645 /* MyBook.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyBook.swift; sourceTree = "<group>"; };
 		30ED08A32B075EA3000B0645 /* Extension+NSManagedObjectContext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+NSManagedObjectContext.swift"; sourceTree = "<group>"; };
-		30ED08A52B075F2F000B0645 /* Extension+CDMyBook.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+CDMyBook.swift"; sourceTree = "<group>"; };
+		30ED08A52B075F2F000B0645 /* Extension+CDBook.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+CDBook.swift"; sourceTree = "<group>"; };
 		446CCC4F2B064CA100903989 /* HyReadBooks.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HyReadBooks.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		446CCC522B064CA100903989 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		446CCC542B064CA100903989 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -270,6 +272,8 @@
 		446CCD0C2B06621E00903989 /* BookCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookCell.swift; sourceTree = "<group>"; };
 		446CCD0E2B0663AA00903989 /* WatchBookViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchBookViewModel.swift; sourceTree = "<group>"; };
 		446CCD112B06686700903989 /* MyBooksViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyBooksViewModel.swift; sourceTree = "<group>"; };
+		446CCD132B07A01300903989 /* Extension+CDSavedBook.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+CDSavedBook.swift"; sourceTree = "<group>"; };
+		446CCD152B0852AD00903989 /* HRCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HRCache.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -391,7 +395,8 @@
 			isa = PBXGroup;
 			children = (
 				30ED08A32B075EA3000B0645 /* Extension+NSManagedObjectContext.swift */,
-				30ED08A52B075F2F000B0645 /* Extension+CDMyBook.swift */,
+				30ED08A52B075F2F000B0645 /* Extension+CDBook.swift */,
+				446CCD132B07A01300903989 /* Extension+CDSavedBook.swift */,
 			);
 			path = extensions;
 			sourceTree = "<group>";
@@ -468,6 +473,7 @@
 				446CCCF92B06569700903989 /* DataSource */,
 				446CCCAB2B064DC200903989 /* Environment.swift */,
 				446CCCF32B06552E00903989 /* AppEnvironment.swift */,
+				446CCD152B0852AD00903989 /* HRCache.swift */,
 			);
 			path = HRLibrary;
 			sourceTree = "<group>";
@@ -961,13 +967,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				30C9D30F2B07471F0097213C /* HRLocalStorage+Helpers.swift in Sources */,
-				30ED08A62B075F2F000B0645 /* Extension+CDMyBook.swift in Sources */,
+				30ED08A62B075F2F000B0645 /* Extension+CDBook.swift in Sources */,
 				30ED08A42B075EA3000B0645 /* Extension+NSManagedObjectContext.swift in Sources */,
 				30C9D3042B07444B0097213C /* LocalStorageProtocol.swift in Sources */,
 				30C9D3062B0744A80097213C /* HRLocalStorage.swift in Sources */,
 				30C9D3132B07495A0097213C /* Managed.swift in Sources */,
 				30C9D3022B0741170097213C /* CoreDataStack.swift in Sources */,
 				30ED089E2B07582B000B0645 /* Model.xcdatamodeld in Sources */,
+				446CCD142B07A01300903989 /* Extension+CDSavedBook.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1015,6 +1022,7 @@
 			files = (
 				446CCD122B06686700903989 /* MyBooksViewModel.swift in Sources */,
 				446CCCFB2B0656AB00903989 /* UIViewController+Preparation.swift in Sources */,
+				446CCD162B0852AD00903989 /* HRCache.swift in Sources */,
 				446CCCAC2B064DC200903989 /* Environment.swift in Sources */,
 				446CCD002B0658E700903989 /* Optional+Extension.swift in Sources */,
 				446CCCFE2B06572D00903989 /* RootViewModel.swift in Sources */,
@@ -1158,9 +1166,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = 6GH2ZWT255;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
@@ -1192,9 +1202,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = 6GH2ZWT255;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
@@ -1382,6 +1394,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 6GH2ZWT255;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = HyReadBooks/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -1410,6 +1423,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 6GH2ZWT255;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = HyReadBooks/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -1506,9 +1520,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = 6GH2ZWT255;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
@@ -1540,9 +1556,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = 6GH2ZWT255;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
@@ -1607,9 +1625,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = 6GH2ZWT255;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
@@ -1641,9 +1661,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = 6GH2ZWT255;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";

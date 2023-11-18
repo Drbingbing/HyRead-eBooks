@@ -39,10 +39,9 @@ final class MyBooksViewController: UIViewController {
     override func bindingViewModel() {
         viewModel.outputs.books
             .drive { [weak self] books in
-                var snapshot = NSDiffableDataSourceSnapshot<Section, MyBookCellRowValue>()
+                var snapshot = NSDiffableDataSourceSnapshot<Section, Book>()
                 snapshot.appendSections([.main])
-                let values = books.map { MyBookCellRowValue(book: $0, saved: false) }
-                snapshot.appendItems(values)
+                snapshot.appendItems(books)
                 self?.dataSource.apply(snapshot)
             }
             .disposed(by: disposeBag)
@@ -80,14 +79,15 @@ final class MyBooksViewController: UIViewController {
     // MARK: - Private properties
     private let disposeBag = DisposeBag()
     private let collectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
-    private lazy var dataSource = UICollectionViewDiffableDataSource<Section, MyBookCellRowValue>(collectionView: collectionView) { collectionView, indexPath, value in
+    private lazy var dataSource = UICollectionViewDiffableDataSource<Section, Book>(collectionView: collectionView) { collectionView, indexPath, book in
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: BookCell.reuseID, for: indexPath) as! BookCell
-        cell.populate(value: value)
+        cell.populate(book: book)
         return cell
     }
 }
 
 
+// MARK: - UICollectionViewDelegate
 extension MyBooksViewController: UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, didHighlightItemAt indexPath: IndexPath) {

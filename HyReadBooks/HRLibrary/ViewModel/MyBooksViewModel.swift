@@ -15,6 +15,8 @@ public protocol MyBooksViewModelInputs {
     
     /// Call from the controller's `viewDidLoad` method.
     func viewDidLoad()
+    
+    func saveBook(_ book: Book, shouldSave: Bool)
 }
 
 public protocol MyBooksViewModelOutputs {
@@ -35,7 +37,6 @@ public final class MyBooksViewModel: MyBooksViewModelProtocol, MyBooksViewModelI
     public init() {
         let store = AppEnvironment.current.localStorage.fetchMyBooks()
             .asObservable()
-            .map { try $0.get() }
             .map { $0.map(asBook) }
             .catchAndReturn([])
         let remote = AppEnvironment.current.apiService.userList()
@@ -46,17 +47,13 @@ public final class MyBooksViewModel: MyBooksViewModelProtocol, MyBooksViewModelI
                     .map { _ in books }
             }
             .catchAndReturn([])
-        books = Observable.zip(store, remote)
-            .map(merge)
+        
+        let savedBooks = AppEnvironment.current.localStorage.fetchCollections()
+            .asObservable()
+            .map { $0.map { Int($0.uuid) } }
+        books = Observable.merge(store, remote)
+            .withLatestFrom(savedBooks) { cacheSavedBooks($1, books: $0) }
             .asDriver(onErrorJustReturn: [])
-//        books = Observable.just([Book(
-//            uuid: 0,
-//            title: "藍色時期. 7",
-//            coverURL: "https://webcdn2.ebook.hyread.com.tw/bookcover/270374978957267916620215022111051.jpg",
-//            publishDate: "",
-//            publisher: "",
-//            author: "")]
-//        ).asDriver(onErrorJustReturn: [])
     }
     
     public var inputs: MyBooksViewModelInputs { return self }
@@ -70,9 +67,14 @@ public final class MyBooksViewModel: MyBooksViewModelProtocol, MyBooksViewModelI
     public func viewDidLoad() {
         viewDidLoadSubject.onNext(())
     }
+    
+    private let saveBookSubject = PublishSubject<(book: Book, shouldSave: Bool)>()
+    public func saveBook(_ book: Book, shouldSave: Bool) {
+        saveBookSubject.onNext((book, shouldSave))
+    }
 }
 
-private func asBook(_ cdBook: CDMyBook) -> Book {
+private func asBook(_ cdBook: CDBook) -> Book {
     Book(
         uuid: Int(cdBook.uuid),
         title: cdBook.title ?? "",
@@ -83,10 +85,22 @@ private func asBook(_ cdBook: CDMyBook) -> Book {
     )
 }
 
-private func merge(store: [Book], remote: [Book]) -> [Book] {
-    if !store.isEmpty {
-        return store
+private func cacheSavedBooks(_ booksSaved: [Int], books: [Book]) -> [Book] {
+    // create cache if it doesn't exist yet
+    let tryCache = AppEnvironment.current.cache[HRCache.hr_bookSaved]
+    AppEnvironment.current.cache[HRCache.hr_bookSaved] = tryCache ?? [Int: Bool]()
+    
+    guard var cache = AppEnvironment.current.cache[HRCache.hr_bookSaved] as? [Int: Bool] else {
+      return books
     }
     
-    return remote
+    for book in books {
+        if booksSaved.contains(book.uuid) {
+            cache[book.uuid] = true
+        }
+    }
+    
+    AppEnvironment.current.cache[HRCache.hr_bookSaved] = cache
+    
+    return books
 }

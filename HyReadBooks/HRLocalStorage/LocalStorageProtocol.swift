@@ -12,7 +12,18 @@ import HRApi
 
 public protocol LocalStorageProtocol {
     
-    func fetchMyBooks() -> Signal<Result<[CDMyBook], Error>>
+    /// Fetch all books that storing local.
+    func fetchMyBooks() -> Signal<[CDBook]>
     
+    /// Save all books that retrieved from cloud.
     func saveMyBooks(_ books: [Book]) -> Signal<Bool>
+    
+    /// Add book to collection lists
+    func addToCollections(_ book: Book) -> Signal<Bool>
+    
+    /// Remove book from collection list
+    func removeFromCollections(_ book: Book) -> Signal<Bool>
+    
+    /// Fetch all saved collections
+    func fetchCollections() -> Signal<[CDSavedBook]>
 }

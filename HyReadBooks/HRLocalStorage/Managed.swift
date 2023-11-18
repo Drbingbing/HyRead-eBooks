@@ -19,11 +19,15 @@ extension Managed where Self: NSManagedObject {
         return entity().name!
     }
     
-    static func fetch(in context: NSManagedObjectContext) -> [Self] {
+    static func fetch(
+        in context: NSManagedObjectContext,
+        configurationBlock: (NSFetchRequest<Self>) -> Void = { _ in }
+    ) -> [Self] {
         let request = NSFetchRequest<Self>(entityName: Self.entityName)
-        request.sortDescriptors = [NSSortDescriptor(key: "sortID", ascending: true)]
+        configurationBlock(request)
         return (try? context.fetch(request)) ?? []
     }
 }
 
-extension CDMyBook: Managed {}
+extension CDBook: Managed {}
+extension CDSavedBook: Managed {}

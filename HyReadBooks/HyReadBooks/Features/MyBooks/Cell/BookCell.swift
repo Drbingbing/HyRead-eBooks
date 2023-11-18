@@ -12,6 +12,7 @@ import RxSwift
 import RxCocoa
 import Kingfisher
 
+
 final class BookCell: UICollectionViewCell {
     
     static let reuseID = "BookCell"
@@ -22,7 +23,7 @@ final class BookCell: UICollectionViewCell {
     
     private let viewModel: MyBookViewModelProtocol = MyBookViewModel()
     private let watchBookViewModel: WatchBookViewModelProtocol = WatchBookViewModel()
-    private let disposeBag = DisposeBag()
+    private var disposeBag = DisposeBag()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -51,7 +52,28 @@ final class BookCell: UICollectionViewCell {
         
         saveButton.setImage(UIImage(named: "icon_saved"), for: .selected)
         saveButton.setImage(UIImage(named: "icon_unsaved"), for: .normal)
+        saveButton.addTarget(self, action: #selector(saveButtonTapped), for: .touchUpInside)
         saveButton.tintColor = .white
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        
+        contentView.backgroundColor = .white
+        imageView.layer.masksToBounds = true
+        imageView.layer.cornerRadius = 6
+    }
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        disposeBag = DisposeBag()
+    }
+    
+    private func bindingViewModel() {
         
         viewModel.outputs.title
             .drive(titleLabel.rx.text)
@@ -68,22 +90,15 @@ final class BookCell: UICollectionViewCell {
             .disposed(by: disposeBag)
     }
     
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
-    
-    override func layoutSubviews() {
-        super.layoutSubviews()
+    func populate(book: Book) {
+        bindingViewModel()
         
-        contentView.backgroundColor = .white
-        imageView.layer.masksToBounds = true
-        imageView.layer.cornerRadius = 6
+        watchBookViewModel.inputs.configure(book: book)
+        viewModel.inputs.configure(book: book)
     }
     
-    func populate(value: MyBookCellRowValue) {
-        watchBookViewModel.inputs.configure(saved: value.saved)
-        viewModel.inputs.configure(book: value.book)
+    @objc private func saveButtonTapped(_ sender: UIButton) {
+        watchBookViewModel.inputs.saveButtonTapped(selected: sender.isSelected)
     }
 }
 

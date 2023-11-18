@@ -6,3 +6,16 @@
 //
 
 import Foundation
+import CoreData
+import HRApi
+
+extension CDSavedBook {
+    
+    @discardableResult
+    static func insert(into context: NSManagedObjectContext, book: Book) -> CDSavedBook {
+        let object: CDSavedBook = context.insertObject()
+        object.uuid = Int32(book.uuid)
+        
+        return object
+    }
+}
