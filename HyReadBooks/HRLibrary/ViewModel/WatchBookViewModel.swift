@@ -52,7 +52,7 @@ public final class WatchBookViewModel: WatchBookViewModelProtocol, WatchBookView
             .map { book, selected in (book, !selected) }
             .flatMap { book, shouldSave in
                 saveBookProducer(with: book, shouldSave: shouldSave)
-                    .map { cacheSavedBook(book: book, shouldSave: $0) }
+                    .map { _ in cacheSavedBook(book: book, shouldSave: shouldSave) }
             }
         
         let book = Observable.merge(configuredBook, saveBookToggle)
