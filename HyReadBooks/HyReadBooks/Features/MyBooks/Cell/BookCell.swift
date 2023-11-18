@@ -81,7 +81,7 @@ final class BookCell: UICollectionViewCell {
         
         viewModel.outputs.coverURL
             .drive { [weak self] url in
-                self?.imageView.kf.setImage(with: url)
+                self?.imageView.kf.setImage(with: url, options: [.loadDiskFileSynchronously])
             }
             .disposed(by: disposeBag)
         
