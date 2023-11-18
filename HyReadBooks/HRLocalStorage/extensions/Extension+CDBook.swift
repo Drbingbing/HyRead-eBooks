@@ -9,7 +9,7 @@ import Foundation
 import CoreData
 import HRApi
 
-extension CDMyBook {
+extension CDBook {
     
     static func eraseAll(into context: NSManagedObjectContext) {
         let objects = fetch(in: context)
@@ -19,12 +19,12 @@ extension CDMyBook {
     }
     
     @discardableResult
-    static func insert(into context: NSManagedObjectContext, books: [Book]) -> [CDMyBook] {
+    static func insert(into context: NSManagedObjectContext, books: [Book]) -> [CDBook] {
         books.enumerated().map { insert(into: context, book: $0.element, id: $0.offset) }
     }
     
-    static func insert(into context: NSManagedObjectContext, book: Book, id: Int) -> CDMyBook {
-        let object: CDMyBook = context.insertObject()
+    static func insert(into context: NSManagedObjectContext, book: Book, id: Int) -> CDBook {
+        let object: CDBook = context.insertObject()
         object.uuid = Int32(book.uuid)
         object.setValue(id, forKey: "sortID")
         object.setValue(book.title, forKey: "title")
