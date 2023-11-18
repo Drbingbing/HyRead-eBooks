@@ -88,6 +88,18 @@ final class BookCell: UICollectionViewCell {
         watchBookViewModel.outputs.saveButtonSelected
             .drive(saveButton.rx.isSelected)
             .disposed(by: disposeBag)
+        
+        watchBookViewModel.outputs.generateImpactFeedback
+            .subscribe { _ in
+                generateImpactFeedback()
+            }
+            .disposed(by: disposeBag)
+        
+        watchBookViewModel.outputs.saveButtonSelectedHint
+            .subscribe { [weak self] hint in
+                self?.showSnackbar(message: hint)
+            }
+            .disposed(by: disposeBag)
     }
     
     func populate(book: Book) {

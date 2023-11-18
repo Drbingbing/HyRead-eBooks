@@ -21,6 +21,12 @@ public protocol WatchBookViewModelOutputs {
     
     /// Emits when the project has been successfully saved and a prompt should be shown to the user.
     var saveButtonSelected: Driver<Bool> { get }
+    
+    /// Emits when haptic feedback should be generated
+    var generateImpactFeedback: Observable<Void> { get }
+    
+    /// Emits the hint for the save button.
+    var saveButtonSelectedHint: Observable<String> { get }
 }
 
 public protocol WatchBookViewModelProtocol {
@@ -59,10 +65,19 @@ public final class WatchBookViewModel: WatchBookViewModelProtocol, WatchBookView
         
         saveButtonSelected = book.map(\.1)
             .asDriver(onErrorJustReturn: false)
+        
+        generateImpactFeedback = saveBookToggle
+            .map { _ in Void() }
+        
+        saveButtonSelectedHint = saveBookToggle
+            .map(\.1)
+            .map { $0 ? "✅ 成功加入收藏" : "✅ 已從收藏移除" }
     }
     
     // MARK: - Outpus
     public let saveButtonSelected: Driver<Bool>
+    public let generateImpactFeedback: Observable<Void>
+    public let saveButtonSelectedHint: Observable<String>
     
     // MARK: - Inputs
     private let configureSubject = PublishSubject<Book>()

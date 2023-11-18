@@ -20,7 +20,6 @@
 		30C9D30F2B07471F0097213C /* HRLocalStorage+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30C9D30E2B07471F0097213C /* HRLocalStorage+Helpers.swift */; };
 		30C9D3132B07495A0097213C /* Managed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30C9D3122B07495A0097213C /* Managed.swift */; };
 		30ED089E2B07582B000B0645 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 30ED089C2B07582B000B0645 /* Model.xcdatamodeld */; };
-		30ED08A12B0759C9000B0645 /* MyBook.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30ED08A02B0759C9000B0645 /* MyBook.swift */; };
 		30ED08A42B075EA3000B0645 /* Extension+NSManagedObjectContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30ED08A32B075EA3000B0645 /* Extension+NSManagedObjectContext.swift */; };
 		30ED08A62B075F2F000B0645 /* Extension+CDBook.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30ED08A52B075F2F000B0645 /* Extension+CDBook.swift */; };
 		30ED08A72B075F65000B0645 /* HRApi.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 446CCCB22B064E0B00903989 /* HRApi.framework */; };
@@ -76,6 +75,11 @@
 		446CCD122B06686700903989 /* MyBooksViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 446CCD112B06686700903989 /* MyBooksViewModel.swift */; };
 		446CCD142B07A01300903989 /* Extension+CDSavedBook.swift in Sources */ = {isa = PBXBuildFile; fileRef = 446CCD132B07A01300903989 /* Extension+CDSavedBook.swift */; };
 		446CCD162B0852AD00903989 /* HRCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 446CCD152B0852AD00903989 /* HRCache.swift */; };
+		446CCD1C2B08E05200903989 /* SharedFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 446CCD172B08DF8C00903989 /* SharedFunctions.swift */; };
+		446CCD1D2B08E05500903989 /* UIFeedBackGenerationType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 446CCD192B08DFD600903989 /* UIFeedBackGenerationType.swift */; };
+		446CCD202B08E43F00903989 /* Popover in Frameworks */ = {isa = PBXBuildFile; productRef = 446CCD1F2B08E43F00903989 /* Popover */; };
+		446CCD232B08E74300903989 /* WrapperView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 446CCD222B08E74300903989 /* WrapperView.swift */; };
+		446CCD252B08EB0100903989 /* UIView+SnackBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 446CCD242B08EB0100903989 /* UIView+SnackBar.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -229,7 +233,6 @@
 		30C9D30E2B07471F0097213C /* HRLocalStorage+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HRLocalStorage+Helpers.swift"; sourceTree = "<group>"; };
 		30C9D3122B07495A0097213C /* Managed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Managed.swift; sourceTree = "<group>"; };
 		30ED089D2B07582B000B0645 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
-		30ED08A02B0759C9000B0645 /* MyBook.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyBook.swift; sourceTree = "<group>"; };
 		30ED08A32B075EA3000B0645 /* Extension+NSManagedObjectContext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+NSManagedObjectContext.swift"; sourceTree = "<group>"; };
 		30ED08A52B075F2F000B0645 /* Extension+CDBook.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+CDBook.swift"; sourceTree = "<group>"; };
 		446CCC4F2B064CA100903989 /* HyReadBooks.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HyReadBooks.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -274,6 +277,10 @@
 		446CCD112B06686700903989 /* MyBooksViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyBooksViewModel.swift; sourceTree = "<group>"; };
 		446CCD132B07A01300903989 /* Extension+CDSavedBook.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+CDSavedBook.swift"; sourceTree = "<group>"; };
 		446CCD152B0852AD00903989 /* HRCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HRCache.swift; sourceTree = "<group>"; };
+		446CCD172B08DF8C00903989 /* SharedFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedFunctions.swift; sourceTree = "<group>"; };
+		446CCD192B08DFD600903989 /* UIFeedBackGenerationType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIFeedBackGenerationType.swift; sourceTree = "<group>"; };
+		446CCD222B08E74300903989 /* WrapperView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WrapperView.swift; sourceTree = "<group>"; };
+		446CCD242B08EB0100903989 /* UIView+SnackBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+SnackBar.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -299,6 +306,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				446CCD202B08E43F00903989 /* Popover in Frameworks */,
 				446CCC872B064D6A00903989 /* Kingfisher in Frameworks */,
 				446CCC842B064D5A00903989 /* RxCocoa in Frameworks */,
 				30C9D2F62B073ECE0097213C /* HRLocalStorage.framework in Frameworks */,
@@ -383,14 +391,6 @@
 			path = HRLocalStorageTests;
 			sourceTree = "<group>";
 		};
-		30ED089F2B0759BF000B0645 /* models */ = {
-			isa = PBXGroup;
-			children = (
-				30ED08A02B0759C9000B0645 /* MyBook.swift */,
-			);
-			path = models;
-			sourceTree = "<group>";
-		};
 		30ED08A22B075E8B000B0645 /* extensions */ = {
 			isa = PBXGroup;
 			children = (
@@ -437,7 +437,8 @@
 		446CCC512B064CA100903989 /* HyReadBooks */ = {
 			isa = PBXGroup;
 			children = (
-				30ED089F2B0759BF000B0645 /* models */,
+				446CCD212B08E73100903989 /* SharedViews */,
+				446CCD1B2B08E02D00903989 /* Library */,
 				446CCCF52B06560A00903989 /* Features */,
 				446CCC522B064CA100903989 /* AppDelegate.swift */,
 				446CCC542B064CA100903989 /* SceneDelegate.swift */,
@@ -598,6 +599,24 @@
 			path = Cell;
 			sourceTree = "<group>";
 		};
+		446CCD1B2B08E02D00903989 /* Library */ = {
+			isa = PBXGroup;
+			children = (
+				446CCD172B08DF8C00903989 /* SharedFunctions.swift */,
+				446CCD192B08DFD600903989 /* UIFeedBackGenerationType.swift */,
+			);
+			path = Library;
+			sourceTree = "<group>";
+		};
+		446CCD212B08E73100903989 /* SharedViews */ = {
+			isa = PBXGroup;
+			children = (
+				446CCD222B08E74300903989 /* WrapperView.swift */,
+				446CCD242B08EB0100903989 /* UIView+SnackBar.swift */,
+			);
+			path = SharedViews;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -689,6 +708,7 @@
 				446CCC832B064D5A00903989 /* RxCocoa */,
 				446CCC862B064D6A00903989 /* Kingfisher */,
 				446CCD012B0659EA00903989 /* RxSwift */,
+				446CCD1F2B08E43F00903989 /* Popover */,
 			);
 			productName = HyReadBooks;
 			productReference = 446CCC4F2B064CA100903989 /* HyReadBooks.app */;
@@ -874,6 +894,7 @@
 			packageReferences = (
 				446CCC822B064D5A00903989 /* XCRemoteSwiftPackageReference "RxSwift" */,
 				446CCC852B064D6A00903989 /* XCRemoteSwiftPackageReference "Kingfisher" */,
+				446CCD1E2B08E43F00903989 /* XCRemoteSwiftPackageReference "Popover" */,
 			);
 			productRefGroup = 446CCC502B064CA100903989 /* Products */;
 			projectDirPath = "";
@@ -990,11 +1011,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				30ED08A12B0759C9000B0645 /* MyBook.swift in Sources */,
 				446CCC532B064CA100903989 /* AppDelegate.swift in Sources */,
+				446CCD252B08EB0100903989 /* UIView+SnackBar.swift in Sources */,
+				446CCD1D2B08E05500903989 /* UIFeedBackGenerationType.swift in Sources */,
 				446CCD092B065AF500903989 /* MyBooksViewController.swift in Sources */,
 				446CCCF82B06565800903989 /* RootTabBarViewController.swift in Sources */,
 				446CCC552B064CA100903989 /* SceneDelegate.swift in Sources */,
+				446CCD1C2B08E05200903989 /* SharedFunctions.swift in Sources */,
+				446CCD232B08E74300903989 /* WrapperView.swift in Sources */,
 				446CCD0D2B06621E00903989 /* BookCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1319,7 +1343,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
@@ -1376,7 +1400,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
@@ -1838,6 +1862,14 @@
 				minimumVersion = 7.10.0;
 			};
 		};
+		446CCD1E2B08E43F00903989 /* XCRemoteSwiftPackageReference "Popover" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/lkzhao/Popover.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.1.4;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -1885,6 +1917,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 446CCC822B064D5A00903989 /* XCRemoteSwiftPackageReference "RxSwift" */;
 			productName = RxSwift;
+		};
+		446CCD1F2B08E43F00903989 /* Popover */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 446CCD1E2B08E43F00903989 /* XCRemoteSwiftPackageReference "Popover" */;
+			productName = Popover;
 		};
 /* End XCSwiftPackageProductDependency section */
 
