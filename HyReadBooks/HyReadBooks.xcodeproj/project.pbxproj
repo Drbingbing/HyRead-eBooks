@@ -83,6 +83,7 @@
 		446CCD282B0A007400903989 /* SavedBookViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 446CCD272B0A007400903989 /* SavedBookViewController.swift */; };
 		446CCD2B2B0A028400903989 /* SavedBooksViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 446CCD2A2B0A028400903989 /* SavedBooksViewModel.swift */; };
 		446CCD2D2B0A040200903989 /* DomainTransferFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 446CCD2C2B0A040200903989 /* DomainTransferFunctions.swift */; };
+		446CCD302B0A14B100903989 /* CrossDissolveTranstionAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 446CCD2F2B0A14B100903989 /* CrossDissolveTranstionAnimator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -287,6 +288,7 @@
 		446CCD272B0A007400903989 /* SavedBookViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedBookViewController.swift; sourceTree = "<group>"; };
 		446CCD2A2B0A028400903989 /* SavedBooksViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedBooksViewModel.swift; sourceTree = "<group>"; };
 		446CCD2C2B0A040200903989 /* DomainTransferFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DomainTransferFunctions.swift; sourceTree = "<group>"; };
+		446CCD2F2B0A14B100903989 /* CrossDissolveTranstionAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CrossDissolveTranstionAnimator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -620,6 +622,7 @@
 		446CCD212B08E73100903989 /* SharedViews */ = {
 			isa = PBXGroup;
 			children = (
+				446CCD2E2B0A148A00903989 /* Transitions */,
 				446CCD222B08E74300903989 /* WrapperView.swift */,
 				446CCD242B08EB0100903989 /* UIView+SnackBar.swift */,
 			);
@@ -640,6 +643,14 @@
 				446CCD272B0A007400903989 /* SavedBookViewController.swift */,
 			);
 			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		446CCD2E2B0A148A00903989 /* Transitions */ = {
+			isa = PBXGroup;
+			children = (
+				446CCD2F2B0A14B100903989 /* CrossDissolveTranstionAnimator.swift */,
+			);
+			path = Transitions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1045,6 +1056,7 @@
 				446CCC552B064CA100903989 /* SceneDelegate.swift in Sources */,
 				446CCD1C2B08E05200903989 /* SharedFunctions.swift in Sources */,
 				446CCD232B08E74300903989 /* WrapperView.swift in Sources */,
+				446CCD302B0A14B100903989 /* CrossDissolveTranstionAnimator.swift in Sources */,
 				446CCD0D2B06621E00903989 /* BookCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

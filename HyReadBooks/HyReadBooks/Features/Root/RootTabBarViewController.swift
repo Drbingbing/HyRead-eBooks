@@ -22,6 +22,10 @@ final class RootTabBarViewController: UITabBarController {
         view.backgroundColor = .white
     }
     
+    override func bindingUI() {
+        delegate = self
+    }
+    
     override func bindingViewModel() {
         viewModel.outputs.viewControllers
             .map { $0.map { RootTabBarViewController.viewController(from: $0) } }
@@ -81,4 +85,20 @@ private func collectionsTabBarItemStyle(_ tabBarItem: UITabBarItem) {
 private func savedBooksTabBarItemStyle(_ tabBarItem: UITabBarItem) {
     tabBarItem.title = "收藏"
     tabBarItem.image = UIImage(systemName: "heart")
+}
+
+
+extension RootTabBarViewController: UITabBarControllerDelegate {
+    
+    func tabBarController(
+        _ tabBarController: UITabBarController,
+        animationControllerForTransitionFrom fromVC: UIViewController,
+        to toVC: UIViewController
+    ) -> UIViewControllerAnimatedTransitioning? {
+        if let fromIndex = viewControllers?.firstIndex(of: fromVC),
+           let toIndex = viewControllers?.firstIndex(of: toVC) {
+            return CrossDissolveTransitionAnimator(direction: fromIndex < toIndex ? .right : .left)
+        }
+        return CrossDissolveTransitionAnimator()
+    }
 }
