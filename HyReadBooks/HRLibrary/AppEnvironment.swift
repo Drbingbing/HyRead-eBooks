@@ -27,7 +27,8 @@ public struct AppEnvironment {
     public static func replaceCurrentEnvironment(
         apiService: ServiceProtocol = AppEnvironment.current.apiService,
         localStorage: LocalStorageProtocol = AppEnvironment.current.localStorage,
-        cache: HRCache = AppEnvironment.current.cache
+        cache: HRCache = AppEnvironment.current.cache,
+        keyValueStore: KeyValueStoreProtocol = AppEnvironment.current.keyValueStore
     ) {
         replaceCurrentEnvironment(
             Environment(

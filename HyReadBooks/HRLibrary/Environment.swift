@@ -21,13 +21,17 @@ public struct Environment {
     /// A type that stores a cached dictionary.
     public let cache: HRCache
     
+    public let keyValueStore: KeyValueStoreProtocol
+    
     public init(
         apiService: ServiceProtocol = HRService(),
         localStorage: LocalStorageProtocol = HRLocalStorage(),
-        cache: HRCache = HRCache()
+        cache: HRCache = HRCache(),
+        keyValueStore: KeyValueStoreProtocol = UserDefaults.standard
     ) {
         self.apiService = apiService
         self.localStorage = localStorage
         self.cache = cache
+        self.keyValueStore = keyValueStore
     }
 }

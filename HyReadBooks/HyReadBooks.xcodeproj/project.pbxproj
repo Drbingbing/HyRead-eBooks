@@ -84,6 +84,16 @@
 		446CCD2B2B0A028400903989 /* SavedBooksViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 446CCD2A2B0A028400903989 /* SavedBooksViewModel.swift */; };
 		446CCD2D2B0A040200903989 /* DomainTransferFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 446CCD2C2B0A040200903989 /* DomainTransferFunctions.swift */; };
 		446CCD302B0A14B100903989 /* CrossDissolveTranstionAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 446CCD2F2B0A14B100903989 /* CrossDissolveTranstionAnimator.swift */; };
+		446CCD322B0A1CAE00903989 /* Extension+UICollectionViewCompositionalLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 446CCD312B0A1CAE00903989 /* Extension+UICollectionViewCompositionalLayout.swift */; };
+		446CCD362B0A248600903989 /* BookLayoutTemplateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 446CCD352B0A248600903989 /* BookLayoutTemplateViewController.swift */; };
+		446CCD392B0A251800903989 /* BookLayoutTemplateCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 446CCD382B0A251800903989 /* BookLayoutTemplateCell.swift */; };
+		446CCD3B2B0A2ACD00903989 /* BookLayoutTemplateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 446CCD3A2B0A2ACD00903989 /* BookLayoutTemplateView.swift */; };
+		446CCD3D2B0A2BBA00903989 /* ShapeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 446CCD3C2B0A2BBA00903989 /* ShapeView.swift */; };
+		446CCD402B0A399A00903989 /* BookLayoutTemplateParams.swift in Sources */ = {isa = PBXBuildFile; fileRef = 446CCD3F2B0A399A00903989 /* BookLayoutTemplateParams.swift */; };
+		446CCD442B0A3C8C00903989 /* BookLayoutTemplatCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 446CCD432B0A3C8C00903989 /* BookLayoutTemplatCellViewModel.swift */; };
+		446CCD452B0A3DFA00903989 /* BookLayoutTemplateSeletableRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 446CCD412B0A3BD300903989 /* BookLayoutTemplateSeletableRow.swift */; };
+		446CCD472B0A407E00903989 /* BookLayoutTemplateViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 446CCD462B0A407E00903989 /* BookLayoutTemplateViewModel.swift */; };
+		446CCD492B0A526600903989 /* KeyValueStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 446CCD482B0A526600903989 /* KeyValueStore.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -289,6 +299,16 @@
 		446CCD2A2B0A028400903989 /* SavedBooksViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedBooksViewModel.swift; sourceTree = "<group>"; };
 		446CCD2C2B0A040200903989 /* DomainTransferFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DomainTransferFunctions.swift; sourceTree = "<group>"; };
 		446CCD2F2B0A14B100903989 /* CrossDissolveTranstionAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CrossDissolveTranstionAnimator.swift; sourceTree = "<group>"; };
+		446CCD312B0A1CAE00903989 /* Extension+UICollectionViewCompositionalLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UICollectionViewCompositionalLayout.swift"; sourceTree = "<group>"; };
+		446CCD352B0A248600903989 /* BookLayoutTemplateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookLayoutTemplateViewController.swift; sourceTree = "<group>"; };
+		446CCD382B0A251800903989 /* BookLayoutTemplateCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookLayoutTemplateCell.swift; sourceTree = "<group>"; };
+		446CCD3A2B0A2ACD00903989 /* BookLayoutTemplateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookLayoutTemplateView.swift; sourceTree = "<group>"; };
+		446CCD3C2B0A2BBA00903989 /* ShapeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShapeView.swift; sourceTree = "<group>"; };
+		446CCD3F2B0A399A00903989 /* BookLayoutTemplateParams.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookLayoutTemplateParams.swift; sourceTree = "<group>"; };
+		446CCD412B0A3BD300903989 /* BookLayoutTemplateSeletableRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookLayoutTemplateSeletableRow.swift; sourceTree = "<group>"; };
+		446CCD432B0A3C8C00903989 /* BookLayoutTemplatCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookLayoutTemplatCellViewModel.swift; sourceTree = "<group>"; };
+		446CCD462B0A407E00903989 /* BookLayoutTemplateViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookLayoutTemplateViewModel.swift; sourceTree = "<group>"; };
+		446CCD482B0A526600903989 /* KeyValueStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyValueStore.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -380,6 +400,7 @@
 		30C9D2E22B073ECE0097213C /* HRLocalStorage */ = {
 			isa = PBXGroup;
 			children = (
+				446CCD3E2B0A398A00903989 /* models */,
 				30ED08A22B075E8B000B0645 /* extensions */,
 				30C9D3012B0741170097213C /* CoreDataStack.swift */,
 				30C9D3032B07444B0097213C /* LocalStorageProtocol.swift */,
@@ -387,6 +408,7 @@
 				30C9D30E2B07471F0097213C /* HRLocalStorage+Helpers.swift */,
 				30C9D3122B07495A0097213C /* Managed.swift */,
 				30ED089C2B07582B000B0645 /* Model.xcdatamodeld */,
+				446CCD482B0A526600903989 /* KeyValueStore.swift */,
 			);
 			path = HRLocalStorage;
 			sourceTree = "<group>";
@@ -478,6 +500,7 @@
 		446CCC8E2B064DA500903989 /* HRLibrary */ = {
 			isa = PBXGroup;
 			children = (
+				446CCD412B0A3BD300903989 /* BookLayoutTemplateSeletableRow.swift */,
 				446CCCFC2B0656F500903989 /* ViewModel */,
 				446CCCF92B06569700903989 /* DataSource */,
 				446CCCAB2B064DC200903989 /* Environment.swift */,
@@ -549,6 +572,7 @@
 		446CCCF52B06560A00903989 /* Features */ = {
 			isa = PBXGroup;
 			children = (
+				446CCD332B0A245500903989 /* BookLayouts */,
 				446CCD262B0A006500903989 /* SavedBooks */,
 				446CCD072B065A4400903989 /* MyBooks */,
 				446CCCF62B06564900903989 /* Root */,
@@ -581,6 +605,8 @@
 				446CCD112B06686700903989 /* MyBooksViewModel.swift */,
 				30C9D2D52B0737880097213C /* MyBookViewModel.swift */,
 				446CCD2A2B0A028400903989 /* SavedBooksViewModel.swift */,
+				446CCD432B0A3C8C00903989 /* BookLayoutTemplatCellViewModel.swift */,
+				446CCD462B0A407E00903989 /* BookLayoutTemplateViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -625,6 +651,8 @@
 				446CCD2E2B0A148A00903989 /* Transitions */,
 				446CCD222B08E74300903989 /* WrapperView.swift */,
 				446CCD242B08EB0100903989 /* UIView+SnackBar.swift */,
+				446CCD312B0A1CAE00903989 /* Extension+UICollectionViewCompositionalLayout.swift */,
+				446CCD3C2B0A2BBA00903989 /* ShapeView.swift */,
 			);
 			path = SharedViews;
 			sourceTree = "<group>";
@@ -651,6 +679,40 @@
 				446CCD2F2B0A14B100903989 /* CrossDissolveTranstionAnimator.swift */,
 			);
 			path = Transitions;
+			sourceTree = "<group>";
+		};
+		446CCD332B0A245500903989 /* BookLayouts */ = {
+			isa = PBXGroup;
+			children = (
+				446CCD372B0A250900903989 /* Cells */,
+				446CCD342B0A247400903989 /* ViewControllers */,
+			);
+			path = BookLayouts;
+			sourceTree = "<group>";
+		};
+		446CCD342B0A247400903989 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				446CCD352B0A248600903989 /* BookLayoutTemplateViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		446CCD372B0A250900903989 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				446CCD382B0A251800903989 /* BookLayoutTemplateCell.swift */,
+				446CCD3A2B0A2ACD00903989 /* BookLayoutTemplateView.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		446CCD3E2B0A398A00903989 /* models */ = {
+			isa = PBXGroup;
+			children = (
+				446CCD3F2B0A399A00903989 /* BookLayoutTemplateParams.swift */,
+			);
+			path = models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1023,8 +1085,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				446CCD492B0A526600903989 /* KeyValueStore.swift in Sources */,
 				30C9D30F2B07471F0097213C /* HRLocalStorage+Helpers.swift in Sources */,
 				30ED08A62B075F2F000B0645 /* Extension+CDBook.swift in Sources */,
+				446CCD402B0A399A00903989 /* BookLayoutTemplateParams.swift in Sources */,
 				30ED08A42B075EA3000B0645 /* Extension+NSManagedObjectContext.swift in Sources */,
 				30C9D3042B07444B0097213C /* LocalStorageProtocol.swift in Sources */,
 				30C9D3062B0744A80097213C /* HRLocalStorage.swift in Sources */,
@@ -1051,13 +1115,18 @@
 				446CCD282B0A007400903989 /* SavedBookViewController.swift in Sources */,
 				446CCD252B08EB0100903989 /* UIView+SnackBar.swift in Sources */,
 				446CCD1D2B08E05500903989 /* UIFeedBackGenerationType.swift in Sources */,
+				446CCD3B2B0A2ACD00903989 /* BookLayoutTemplateView.swift in Sources */,
 				446CCD092B065AF500903989 /* MyBooksViewController.swift in Sources */,
+				446CCD3D2B0A2BBA00903989 /* ShapeView.swift in Sources */,
+				446CCD392B0A251800903989 /* BookLayoutTemplateCell.swift in Sources */,
 				446CCCF82B06565800903989 /* RootTabBarViewController.swift in Sources */,
 				446CCC552B064CA100903989 /* SceneDelegate.swift in Sources */,
 				446CCD1C2B08E05200903989 /* SharedFunctions.swift in Sources */,
 				446CCD232B08E74300903989 /* WrapperView.swift in Sources */,
 				446CCD302B0A14B100903989 /* CrossDissolveTranstionAnimator.swift in Sources */,
+				446CCD322B0A1CAE00903989 /* Extension+UICollectionViewCompositionalLayout.swift in Sources */,
 				446CCD0D2B06621E00903989 /* BookCell.swift in Sources */,
+				446CCD362B0A248600903989 /* BookLayoutTemplateViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1086,6 +1155,8 @@
 				446CCCFB2B0656AB00903989 /* UIViewController+Preparation.swift in Sources */,
 				446CCD2D2B0A040200903989 /* DomainTransferFunctions.swift in Sources */,
 				446CCD162B0852AD00903989 /* HRCache.swift in Sources */,
+				446CCD452B0A3DFA00903989 /* BookLayoutTemplateSeletableRow.swift in Sources */,
+				446CCD472B0A407E00903989 /* BookLayoutTemplateViewModel.swift in Sources */,
 				446CCCAC2B064DC200903989 /* Environment.swift in Sources */,
 				446CCD002B0658E700903989 /* Optional+Extension.swift in Sources */,
 				446CCCFE2B06572D00903989 /* RootViewModel.swift in Sources */,
@@ -1093,6 +1164,7 @@
 				446CCCF42B06552E00903989 /* AppEnvironment.swift in Sources */,
 				446CCD0F2B0663AA00903989 /* WatchBookViewModel.swift in Sources */,
 				446CCD2B2B0A028400903989 /* SavedBooksViewModel.swift in Sources */,
+				446CCD442B0A3C8C00903989 /* BookLayoutTemplatCellViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -17,12 +17,19 @@ public protocol MyBooksViewModelInputs {
     func viewDidLoad()
     
     func saveBook(_ book: Book, shouldSave: Bool)
+    
+    func layoutButtonTapped()
+    func tapped(selectableRow: BookLayoutTemplateSeletableRow)
 }
 
 public protocol MyBooksViewModelOutputs {
     
     /// Emits the array of books that should be set on collectionview.
     var books: Driver<[Book]> { get }
+    
+    var goToLayoutTemplate: Observable<BookLayoutTemplateSeletableRow> { get }
+    
+    var preferredColumns: Driver<Int> { get }
 }
 
 public protocol MyBooksViewModelProtocol {
@@ -51,9 +58,24 @@ public final class MyBooksViewModel: MyBooksViewModelProtocol, MyBooksViewModelI
         let savedBooks = AppEnvironment.current.localStorage.fetchCollections()
             .asObservable()
             .map { $0.map { Int($0.uuid) } }
-        books = Observable.merge(store, remote)
+        
+        books = viewDidLoadSubject
+            .flatMap { Observable.merge(store, remote) }
             .withLatestFrom(savedBooks) { cacheSavedBooks($1, books: $0) }
             .asDriver(onErrorJustReturn: [])
+        
+        goToLayoutTemplate = layoutButtonSubject
+            .map {
+                AppEnvironment.current.keyValueStore.prefferredColumns
+            }
+            .map { BookLayoutTemplateSeletableRow(params: $0, isSelected: true) }
+            .asObservable()
+        
+        let configureLayout = Observable.merge(fetchPrefferedColumns(), selectableRowSubject)
+        
+        preferredColumns = configureLayout.map(cacheSavedLayout)
+            .map(\.params)
+            .asDriver(onErrorJustReturn: 3)
     }
     
     public var inputs: MyBooksViewModelInputs { return self }
@@ -61,6 +83,8 @@ public final class MyBooksViewModel: MyBooksViewModelProtocol, MyBooksViewModelI
     
     // MARK: - Outputs
     public let books: Driver<[Book]>
+    public let goToLayoutTemplate: Observable<BookLayoutTemplateSeletableRow>
+    public let preferredColumns: Driver<Int>
     
     // MARK: - Inputs
     private let viewDidLoadSubject = PublishSubject<Void>()
@@ -72,6 +96,16 @@ public final class MyBooksViewModel: MyBooksViewModelProtocol, MyBooksViewModelI
     public func saveBook(_ book: Book, shouldSave: Bool) {
         saveBookSubject.onNext((book, shouldSave))
     }
+    
+    private let layoutButtonSubject = PublishSubject<Void>()
+    public func layoutButtonTapped() {
+        layoutButtonSubject.onNext(())
+    }
+    
+    private let selectableRowSubject = PublishSubject<BookLayoutTemplateSeletableRow>()
+    public func tapped(selectableRow: BookLayoutTemplateSeletableRow) {
+        selectableRowSubject.onNext(selectableRow)
+    }
 }
 
 private func cacheSavedBooks(_ booksSaved: [Int], books: [Book]) -> [Book] {
@@ -80,7 +114,7 @@ private func cacheSavedBooks(_ booksSaved: [Int], books: [Book]) -> [Book] {
     AppEnvironment.current.cache[HRCache.hr_bookSaved] = tryCache ?? [Int: Bool]()
     
     guard var cache = AppEnvironment.current.cache[HRCache.hr_bookSaved] as? [Int: Bool] else {
-      return books
+        return books
     }
     
     for book in books {
@@ -92,4 +126,15 @@ private func cacheSavedBooks(_ booksSaved: [Int], books: [Book]) -> [Book] {
     AppEnvironment.current.cache[HRCache.hr_bookSaved] = cache
     
     return books
+}
+
+private func fetchPrefferedColumns() -> Observable<BookLayoutTemplateSeletableRow> {
+    Observable.just(AppEnvironment.current.keyValueStore.prefferredColumns)
+        .map { BookLayoutTemplateSeletableRow(params: $0) }
+}
+
+private func cacheSavedLayout(_ layoutTemplate: BookLayoutTemplateSeletableRow) -> BookLayoutTemplateSeletableRow {
+    AppEnvironment.current.keyValueStore.prefferredColumns = layoutTemplate.params
+    
+    return layoutTemplate
 }

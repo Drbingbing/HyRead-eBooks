@@ -28,12 +28,18 @@ final class MyBooksViewController: UIViewController {
         view.addSubview(collectionView)
         
         collectionView.register(BookCell.self, forCellWithReuseIdentifier: BookCell.reuseID)
-        collectionView.setCollectionViewLayout(createLayout(), animated: false)
         collectionView.dataSource = dataSource
         collectionView.delegate = self
         collectionView.delaysContentTouches = false
         
         navigationItem.title = "我的書櫃"
+        
+        navigationItem.rightBarButtonItem = UIBarButtonItem(
+            title: "",
+            image: UIImage(systemName: "ellipsis.circle"),
+            target: self,
+            action: #selector(didRightBarButtonTapped)
+        )
     }
     
     override func bindingViewModel() {
@@ -45,6 +51,19 @@ final class MyBooksViewController: UIViewController {
                 self?.dataSource.apply(snapshot)
             }
             .disposed(by: disposeBag)
+        viewModel.outputs.goToLayoutTemplate
+            .subscribe { [weak self] template in
+                let vc = BookLayoutTemplateViewController.instantiate(template: template)
+                vc.delegate = self
+                self?.present(UINavigationController(rootViewController: vc), animated: true)
+            }
+            .disposed(by: disposeBag)
+        
+        viewModel.outputs.preferredColumns
+            .drive { [weak self] columns in
+                self?.collectionView.setCollectionViewLayout(myBooksCollectionViewLayout(columns: columns), animated: false)
+            }
+            .disposed(by: disposeBag)
     }
     
     override func viewDidLayoutSubviews() {
@@ -52,28 +71,8 @@ final class MyBooksViewController: UIViewController {
         collectionView.frame = view.bounds.inset(by: view.safeAreaInsets)
     }
     
-    private func createLayout() -> UICollectionViewLayout {
-        let itemSize = NSCollectionLayoutSize(
-            widthDimension: .fractionalWidth(1/3),
-            heightDimension: .fractionalHeight(1.0)
-        )
-        let item = NSCollectionLayoutItem(layoutSize: itemSize)
-        
-        let groupSize = NSCollectionLayoutSize(
-            widthDimension: .fractionalWidth(1.0),
-            heightDimension: .estimated(200)
-        )
-        let group = NSCollectionLayoutGroup.horizontal(
-            layoutSize: groupSize, repeatingSubitem: item, count: 3
-        )
-        
-        group.interItemSpacing = .flexible(10)
-
-        let section = NSCollectionLayoutSection(group: group)
-        section.interGroupSpacing = 20
-        section.contentInsets = .init(top: 20, leading: 20, bottom: 20, trailing: 20)
-        
-        return UICollectionViewCompositionalLayout(section: section)
+    @objc private func didRightBarButtonTapped() {
+        viewModel.inputs.layoutButtonTapped()
     }
     
     // MARK: - Private properties
@@ -84,6 +83,15 @@ final class MyBooksViewController: UIViewController {
         cell.populate(book: book)
         return cell
     }
+}
+
+private func myBooksCollectionViewLayout(columns: Int = 3) -> UICollectionViewLayout {
+    return UICollectionViewCompositionalLayout.waterfall(
+        columns: columns,
+        interItemSpacing: 10,
+        interGroupSpacing: 20,
+        sectionInsets: UIEdgeInsets(20)
+    )
 }
 
 
@@ -104,5 +112,13 @@ extension MyBooksViewController: UICollectionViewDelegate {
                 cell.transform = .identity
             }
         }
+    }
+}
+
+// MARK: -
+extension MyBooksViewController: BookLayoutTemplateViewControllerDelegate {
+    
+    func bookLayoutTemplate(_ viewController: BookLayoutTemplateViewController, selectedRow: BookLayoutTemplateSeletableRow) {
+        viewModel.inputs.tapped(selectableRow: selectedRow)
     }
 }

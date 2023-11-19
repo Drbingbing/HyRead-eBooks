@@ -21,7 +21,7 @@ final class SavedBookViewController: UIViewController {
     override func bindingUI() {
         view.addSubview(collectionView)
         
-        collectionView.setCollectionViewLayout(createLayout(), animated: false)
+        collectionView.setCollectionViewLayout(savedBooksCollectionViewLayout(), animated: false)
         collectionView.register(BookCell.self, forCellWithReuseIdentifier: BookCell.reuseID)
         collectionView.delaysContentTouches = false
         collectionView.delegate = self
@@ -50,30 +50,6 @@ final class SavedBookViewController: UIViewController {
         collectionView.frame = view.bounds.inset(by: view.safeAreaInsets)
     }
     
-    private func createLayout() -> UICollectionViewLayout {
-        let itemSize = NSCollectionLayoutSize(
-            widthDimension: .fractionalWidth(1/3),
-            heightDimension: .fractionalHeight(1.0)
-        )
-        let item = NSCollectionLayoutItem(layoutSize: itemSize)
-        
-        let groupSize = NSCollectionLayoutSize(
-            widthDimension: .fractionalWidth(1.0),
-            heightDimension: .estimated(200)
-        )
-        let group = NSCollectionLayoutGroup.horizontal(
-            layoutSize: groupSize, repeatingSubitem: item, count: 3
-        )
-        
-        group.interItemSpacing = .flexible(10)
-
-        let section = NSCollectionLayoutSection(group: group)
-        section.interGroupSpacing = 20
-        section.contentInsets = .init(top: 20, leading: 20, bottom: 20, trailing: 20)
-        
-        return UICollectionViewCompositionalLayout(section: section)
-    }
-    
     // MARK: - Private properties
     private let disposeBag = DisposeBag()
     private let collectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
@@ -83,6 +59,17 @@ final class SavedBookViewController: UIViewController {
         return cell
     }
 }
+
+
+private func savedBooksCollectionViewLayout(columns: Int = 3) -> UICollectionViewLayout {
+    return UICollectionViewCompositionalLayout.waterfall(
+        columns: 3,
+        interItemSpacing: 10,
+        interGroupSpacing: 20,
+        sectionInsets: UIEdgeInsets(20)
+    )
+}
+
 
 // MARK: - BookCellDelegate {
 extension SavedBookViewController: BookCellDelegate {

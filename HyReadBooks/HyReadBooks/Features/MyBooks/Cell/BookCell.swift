@@ -11,6 +11,7 @@ import HRLibrary
 import RxSwift
 import RxCocoa
 import Kingfisher
+import BaseToolbox
 
 protocol BookCellDelegate: AnyObject {
     func didSaveBookButtonTapped(book: Book, isSaved: Bool)
@@ -46,14 +47,17 @@ final class BookCell: UICollectionViewCell {
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
         titleLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor).isActive = true
         titleLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor).isActive = true
-        titleLabel.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: 2).isActive = true
+        titleLabel.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: 4).isActive = true
+        titleLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor)
+            .then { $0.priority = .defaultLow }
+            .isActive = true
         
         saveButton.translatesAutoresizingMaskIntoConstraints = false
         saveButton.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 8).isActive = true
         saveButton.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -8).isActive = true
         
         titleLabel.font = .systemFont(ofSize: 14)
-        titleLabel.numberOfLines = 3
+        titleLabel.numberOfLines = 2
         
         saveButton.setImage(UIImage(named: "icon_saved"), for: .selected)
         saveButton.setImage(UIImage(named: "icon_unsaved"), for: .normal)
