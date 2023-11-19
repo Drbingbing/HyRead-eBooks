@@ -19,9 +19,9 @@ final class MyBooksViewController: UIViewController {
         case main
     }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        viewModel.inputs.viewDidLoad()
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        viewModel.inputs.viewWillAppear()
     }
     
     override func bindingUI() {
@@ -48,7 +48,7 @@ final class MyBooksViewController: UIViewController {
                 var snapshot = NSDiffableDataSourceSnapshot<Section, Book>()
                 snapshot.appendSections([.main])
                 snapshot.appendItems(books)
-                self?.dataSource.apply(snapshot)
+                self?.dataSource.apply(snapshot) { self?.collectionView.reloadData() }
             }
             .disposed(by: disposeBag)
         viewModel.outputs.goToLayoutTemplate

@@ -112,7 +112,7 @@ private func saveBookProducer(
 
 private func isBookSaved(_ book: Book) -> (Book, Bool) {
     guard let cache = AppEnvironment.current.cache[HRCache.hr_bookSaved] as? [Int: Bool] else {
-      return (book, false)
+        return (book, false)
     }
     
     return (book, cache[book.uuid] ?? false)

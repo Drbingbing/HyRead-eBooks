@@ -13,8 +13,8 @@ import HRLocalStorage
 
 public protocol MyBooksViewModelInputs {
     
-    /// Call from the controller's `viewDidLoad` method.
-    func viewDidLoad()
+    /// Call from the controller's `viewWillAppear` method.
+    func viewWillAppear()
     
     func saveBook(_ book: Book, shouldSave: Bool)
     
@@ -59,9 +59,13 @@ public final class MyBooksViewModel: MyBooksViewModelProtocol, MyBooksViewModelI
             .asObservable()
             .map { $0.map { Int($0.uuid) } }
         
-        books = viewDidLoadSubject
+        books = viewWillAppearSubject
             .flatMap { Observable.merge(store, remote) }
-            .withLatestFrom(savedBooks) { cacheSavedBooks($1, books: $0) }
+            .flatMap { books in
+                savedBooks.map { ids in
+                    cacheSavedBooks(ids, books: books)
+                }
+            }
             .asDriver(onErrorJustReturn: [])
         
         goToLayoutTemplate = layoutButtonSubject
@@ -87,9 +91,9 @@ public final class MyBooksViewModel: MyBooksViewModelProtocol, MyBooksViewModelI
     public let preferredColumns: Driver<Int>
     
     // MARK: - Inputs
-    private let viewDidLoadSubject = PublishSubject<Void>()
-    public func viewDidLoad() {
-        viewDidLoadSubject.onNext(())
+    private let viewWillAppearSubject = PublishSubject<Void>()
+    public func viewWillAppear() {
+        viewWillAppearSubject.onNext(())
     }
     
     private let saveBookSubject = PublishSubject<(book: Book, shouldSave: Bool)>()
@@ -120,6 +124,8 @@ private func cacheSavedBooks(_ booksSaved: [Int], books: [Book]) -> [Book] {
     for book in books {
         if booksSaved.contains(book.uuid) {
             cache[book.uuid] = true
+        } else {
+            cache[book.uuid] = false
         }
     }
     
