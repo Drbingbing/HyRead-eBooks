@@ -26,6 +26,7 @@ public struct HRLocalStorage: LocalStorageProtocol {
                     $0.sortDescriptors = [NSSortDescriptor(key: "sortID", ascending: true)]
                 }
                 observer.onNext(result)
+                observer.onCompleted()
             }
             
             return Disposables.create()
@@ -40,6 +41,7 @@ public struct HRLocalStorage: LocalStorageProtocol {
                 CDBook.eraseAll(into: context)
                 CDBook.insert(into: context, books: books)
                 observer.onNext(true)
+                observer.onCompleted()
             }
             
             return Disposables.create {}
@@ -54,6 +56,7 @@ public struct HRLocalStorage: LocalStorageProtocol {
             context.performChanges {
                 CDSavedBook.insert(into: context, book: book)
                 observer.onNext(true)
+                observer.onCompleted()
             }
             
             return Disposables.create {}
@@ -71,6 +74,7 @@ public struct HRLocalStorage: LocalStorageProtocol {
                     context.delete(object)
                 }
                 observer.onNext(true)
+                observer.onCompleted()
             }
             
             return Disposables.create {}
@@ -85,6 +89,7 @@ public struct HRLocalStorage: LocalStorageProtocol {
             context.performChanges {
                 let saved = CDSavedBook.fetch(in: context)
                 observer.onNext(saved)
+                observer.onCompleted()
             }
             
             return Disposables.create {}

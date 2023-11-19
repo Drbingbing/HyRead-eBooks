@@ -80,6 +80,9 @@
 		446CCD202B08E43F00903989 /* Popover in Frameworks */ = {isa = PBXBuildFile; productRef = 446CCD1F2B08E43F00903989 /* Popover */; };
 		446CCD232B08E74300903989 /* WrapperView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 446CCD222B08E74300903989 /* WrapperView.swift */; };
 		446CCD252B08EB0100903989 /* UIView+SnackBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 446CCD242B08EB0100903989 /* UIView+SnackBar.swift */; };
+		446CCD282B0A007400903989 /* SavedBookViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 446CCD272B0A007400903989 /* SavedBookViewController.swift */; };
+		446CCD2B2B0A028400903989 /* SavedBooksViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 446CCD2A2B0A028400903989 /* SavedBooksViewModel.swift */; };
+		446CCD2D2B0A040200903989 /* DomainTransferFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 446CCD2C2B0A040200903989 /* DomainTransferFunctions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -281,6 +284,9 @@
 		446CCD192B08DFD600903989 /* UIFeedBackGenerationType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIFeedBackGenerationType.swift; sourceTree = "<group>"; };
 		446CCD222B08E74300903989 /* WrapperView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WrapperView.swift; sourceTree = "<group>"; };
 		446CCD242B08EB0100903989 /* UIView+SnackBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+SnackBar.swift"; sourceTree = "<group>"; };
+		446CCD272B0A007400903989 /* SavedBookViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedBookViewController.swift; sourceTree = "<group>"; };
+		446CCD2A2B0A028400903989 /* SavedBooksViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedBooksViewModel.swift; sourceTree = "<group>"; };
+		446CCD2C2B0A040200903989 /* DomainTransferFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DomainTransferFunctions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -475,6 +481,7 @@
 				446CCCAB2B064DC200903989 /* Environment.swift */,
 				446CCCF32B06552E00903989 /* AppEnvironment.swift */,
 				446CCD152B0852AD00903989 /* HRCache.swift */,
+				446CCD2C2B0A040200903989 /* DomainTransferFunctions.swift */,
 			);
 			path = HRLibrary;
 			sourceTree = "<group>";
@@ -540,6 +547,7 @@
 		446CCCF52B06560A00903989 /* Features */ = {
 			isa = PBXGroup;
 			children = (
+				446CCD262B0A006500903989 /* SavedBooks */,
 				446CCD072B065A4400903989 /* MyBooks */,
 				446CCCF62B06564900903989 /* Root */,
 			);
@@ -570,6 +578,7 @@
 				446CCD0E2B0663AA00903989 /* WatchBookViewModel.swift */,
 				446CCD112B06686700903989 /* MyBooksViewModel.swift */,
 				30C9D2D52B0737880097213C /* MyBookViewModel.swift */,
+				446CCD2A2B0A028400903989 /* SavedBooksViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -615,6 +624,22 @@
 				446CCD242B08EB0100903989 /* UIView+SnackBar.swift */,
 			);
 			path = SharedViews;
+			sourceTree = "<group>";
+		};
+		446CCD262B0A006500903989 /* SavedBooks */ = {
+			isa = PBXGroup;
+			children = (
+				446CCD292B0A007B00903989 /* ViewControllers */,
+			);
+			path = SavedBooks;
+			sourceTree = "<group>";
+		};
+		446CCD292B0A007B00903989 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				446CCD272B0A007400903989 /* SavedBookViewController.swift */,
+			);
+			path = ViewControllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1012,6 +1037,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				446CCC532B064CA100903989 /* AppDelegate.swift in Sources */,
+				446CCD282B0A007400903989 /* SavedBookViewController.swift in Sources */,
 				446CCD252B08EB0100903989 /* UIView+SnackBar.swift in Sources */,
 				446CCD1D2B08E05500903989 /* UIFeedBackGenerationType.swift in Sources */,
 				446CCD092B065AF500903989 /* MyBooksViewController.swift in Sources */,
@@ -1046,6 +1072,7 @@
 			files = (
 				446CCD122B06686700903989 /* MyBooksViewModel.swift in Sources */,
 				446CCCFB2B0656AB00903989 /* UIViewController+Preparation.swift in Sources */,
+				446CCD2D2B0A040200903989 /* DomainTransferFunctions.swift in Sources */,
 				446CCD162B0852AD00903989 /* HRCache.swift in Sources */,
 				446CCCAC2B064DC200903989 /* Environment.swift in Sources */,
 				446CCD002B0658E700903989 /* Optional+Extension.swift in Sources */,
@@ -1053,6 +1080,7 @@
 				30C9D2D62B0737880097213C /* MyBookViewModel.swift in Sources */,
 				446CCCF42B06552E00903989 /* AppEnvironment.swift in Sources */,
 				446CCD0F2B0663AA00903989 /* WatchBookViewModel.swift in Sources */,
+				446CCD2B2B0A028400903989 /* SavedBooksViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

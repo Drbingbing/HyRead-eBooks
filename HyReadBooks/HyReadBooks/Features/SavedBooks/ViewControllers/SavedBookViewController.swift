@@ -1,39 +1,32 @@
 //
-//  MyBooksViewController.swift
+//  SavedBookViewController.swift
 //  HyReadBooks
 //
-//  Created by Bing Bing on 2023/11/16.
+//  Created by Bing Bing on 2023/11/19.
 //
 
 import UIKit
 import HRApi
 import HRLibrary
-import RxCocoa
 import RxSwift
 
-final class MyBooksViewController: UIViewController {
+final class SavedBookViewController: UIViewController {
     
-    let viewModel: MyBooksViewModelProtocol = MyBooksViewModel()
+    let viewModel: SavedBooksViewModelProtocol = SavedBooksViewModel()
     
     private enum Section {
         case main
     }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        viewModel.inputs.viewDidLoad()
-    }
-    
     override func bindingUI() {
         view.addSubview(collectionView)
         
-        collectionView.register(BookCell.self, forCellWithReuseIdentifier: BookCell.reuseID)
         collectionView.setCollectionViewLayout(createLayout(), animated: false)
-        collectionView.dataSource = dataSource
-        collectionView.delegate = self
+        collectionView.register(BookCell.self, forCellWithReuseIdentifier: BookCell.reuseID)
         collectionView.delaysContentTouches = false
+        collectionView.delegate = self
         
-        navigationItem.title = "我的書櫃"
+        navigationItem.title = "我的收藏"
     }
     
     override func bindingViewModel() {
@@ -45,6 +38,11 @@ final class MyBooksViewController: UIViewController {
                 self?.dataSource.apply(snapshot)
             }
             .disposed(by: disposeBag)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        viewModel.inputs.viewWillAppear()
     }
     
     override func viewDidLayoutSubviews() {
@@ -86,9 +84,23 @@ final class MyBooksViewController: UIViewController {
     }
 }
 
+// MARK: - BookCellDelegate {
+extension SavedBookViewController: BookCellDelegate {
+    
+    func didSaveBookButtonTapped(book: Book, isSaved: Bool) {
+        viewModel.inputs.setNeesdReload()
+    }
+}
+
 
 // MARK: - UICollectionViewDelegate
-extension MyBooksViewController: UICollectionViewDelegate {
+extension SavedBookViewController: UICollectionViewDelegate {
+    
+    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        if let cell = cell as? BookCell {
+            cell.delegate = self
+        }
+    }
     
     func collectionView(_ collectionView: UICollectionView, didHighlightItemAt indexPath: IndexPath) {
         if let cell = collectionView.cellForItem(at: indexPath) {

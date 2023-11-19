@@ -12,8 +12,13 @@ import RxSwift
 import RxCocoa
 import Kingfisher
 
+protocol BookCellDelegate: AnyObject {
+    func didSaveBookButtonTapped(book: Book, isSaved: Bool)
+}
 
 final class BookCell: UICollectionViewCell {
+    
+    weak var delegate: BookCellDelegate?
     
     static let reuseID = "BookCell"
     
@@ -90,14 +95,20 @@ final class BookCell: UICollectionViewCell {
             .disposed(by: disposeBag)
         
         watchBookViewModel.outputs.generateImpactFeedback
-            .subscribe { _ in
+            .drive { _ in
                 generateImpactFeedback()
             }
             .disposed(by: disposeBag)
         
         watchBookViewModel.outputs.saveButtonSelectedHint
-            .subscribe { [weak self] hint in
+            .drive { [weak self] hint in
                 self?.showSnackbar(message: hint)
+            }
+            .disposed(by: disposeBag)
+        
+        watchBookViewModel.outputs.saveButtonDelegate
+            .subscribe { [weak self] book, isSaved in
+                self?.delegate?.didSaveBookButtonTapped(book: book, isSaved: isSaved)
             }
             .disposed(by: disposeBag)
     }

@@ -74,17 +74,6 @@ public final class MyBooksViewModel: MyBooksViewModelProtocol, MyBooksViewModelI
     }
 }
 
-private func asBook(_ cdBook: CDBook) -> Book {
-    Book(
-        uuid: Int(cdBook.uuid),
-        title: cdBook.title ?? "",
-        coverURL: cdBook.coverURL ?? "",
-        publishDate: cdBook.publishDate ?? "",
-        publisher: cdBook.publisher ?? "",
-        author: cdBook.author ?? ""
-    )
-}
-
 private func cacheSavedBooks(_ booksSaved: [Int], books: [Book]) -> [Book] {
     // create cache if it doesn't exist yet
     let tryCache = AppEnvironment.current.cache[HRCache.hr_bookSaved]

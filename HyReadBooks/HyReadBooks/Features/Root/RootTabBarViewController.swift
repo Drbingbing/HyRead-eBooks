@@ -43,6 +43,8 @@ final class RootTabBarViewController: UITabBarController {
             switch item {
             case let .collections(rootViewControllerIndex):
                 tabBarItem(at: rootViewControllerIndex).ifLet(collectionsTabBarItemStyle)
+            case let .savedBooks(rootViewControllerIndex):
+                tabBarItem(at: rootViewControllerIndex).ifLet(savedBooksTabBarItemStyle)
             }
         }
     }
@@ -66,6 +68,7 @@ extension RootTabBarViewController {
     fileprivate static func viewController(from rootViewController: RootViewControllerData) -> UIViewController {
         switch rootViewController {
         case .collections: MyBooksViewController()
+        case .savedBooks: SavedBookViewController()
         }
     }
 }
@@ -73,4 +76,9 @@ extension RootTabBarViewController {
 private func collectionsTabBarItemStyle(_ tabBarItem: UITabBarItem) {
     tabBarItem.title = "書櫃"
     tabBarItem.image = UIImage(systemName: "book")
+}
+
+private func savedBooksTabBarItemStyle(_ tabBarItem: UITabBarItem) {
+    tabBarItem.title = "收藏"
+    tabBarItem.image = UIImage(systemName: "heart")
 }
