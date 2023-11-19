@@ -42,18 +42,19 @@ final class BookCell: UICollectionViewCell {
         imageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor).isActive = true
         imageView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor).isActive = true
         imageView.heightAnchor.constraint(equalTo: contentView.widthAnchor, multiplier: 1.4).isActive = true
+        imageView.maskedCorners = [.layerMaxXMinYCorner, .layerMinXMinYCorner]
         
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
-        titleLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor).isActive = true
-        titleLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor).isActive = true
-        titleLabel.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: 2).isActive = true
+        titleLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 4).isActive = true
+        titleLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -4).isActive = true
+        titleLabel.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: 4).isActive = true
         
         saveButton.translatesAutoresizingMaskIntoConstraints = false
         saveButton.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 8).isActive = true
         saveButton.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -8).isActive = true
         
         titleLabel.font = .systemFont(ofSize: 14)
-        titleLabel.numberOfLines = 3
+        titleLabel.numberOfLines = 2
         
         saveButton.setImage(UIImage(named: "icon_saved"), for: .selected)
         saveButton.setImage(UIImage(named: "icon_unsaved"), for: .normal)
@@ -68,9 +69,15 @@ final class BookCell: UICollectionViewCell {
     override func layoutSubviews() {
         super.layoutSubviews()
         
-        contentView.backgroundColor = .white
         imageView.layer.masksToBounds = true
         imageView.layer.cornerRadius = 6
+        
+        contentView.backgroundColor = .white
+        contentView.cornerRadius = 6
+        contentView.shadowPath = UIBezierPath(roundedRect: bounds, cornerRadius: 6)
+        contentView.shadowColor = .black.withAlphaComponent(0.1)
+        contentView.shadowOffset = CGSize(width: 0, height: 2)
+        contentView.shadowOpacity = 1
     }
     
     override func prepareForReuse() {
