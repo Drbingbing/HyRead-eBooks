@@ -18,3 +18,10 @@
 
 <br>
 
+# Bonus!
+
+### 瀏覽收藏書本的功能。
+![alt text](https://github.com/Drbingbing/HyRead-eBooks/blob/4bc68d4583bd713f06522a360d90b71d0730f264/HyReadBooks/previews/saved_books.GIF)
+
+### 更改首頁書籍顯示數量
+![alt text](https://github.com/Drbingbing/HyRead-eBooks/blob/4bc68d4583bd713f06522a360d90b71d0730f264/HyReadBooks/previews/template.GIF)
